@@ -19,18 +19,9 @@ namespace DigitalSignature.Forms
 
         private void dragDropInput_DragDrop(object sender, DragEventArgs e)
         {
-            dragDropLabel.Hide();
-            removeButton.Visible = true;
-            dragDropInput.AllowDrop = false;
-            dragDropInput.BackColor = SystemColors.Control;
-            dragDropInput.BorderStyle = BorderStyle.Fixed3D;
-            uplodedDocument.Visible = true;
-        }
+            GetDocumentData(e);
 
-        private void dragDropInput_DragEnter(object sender, DragEventArgs e)
-        {
-            dragDropInput.BackColor = Color.LightGreen;
-            e.Effect = DragDropEffects.All;
+            ShowDocumentMetadata();
         }
 
         private void dragDropInput_DragLeave(object sender, EventArgs e)
@@ -38,14 +29,70 @@ namespace DigitalSignature.Forms
             dragDropInput.BackColor = SystemColors.Control;
         }
 
+        private void dragDropInput_DragEnter(object sender, DragEventArgs e)
+        {
+            dragDropInput.BackColor = Color.LightGreen;
+            e.Effect = DragDropEffects.All;
+            
+        }
+
         private void removeButton_Click(object sender, EventArgs e)
         {
+            HideDocumentMetadata();
+        }
+
+        private void GetDocumentData(DragEventArgs e)
+        {
+            string docPath = "";
+            string docName = "";
+            string docText = "";
+
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            docPath = files[0].ToString();
+            docName = docPath.Substring(docPath.LastIndexOf('\\') + 1);
+            docText = System.IO.File.ReadAllText(docPath);
+
+            documentContent.Text = docText;
+            documentPath.Text = docPath;
+            documentTitle.Text = docName;
+        }
+
+        private void HideDocumentMetadata()
+        {
+            //Vrati sve na zadane posavke izgleda
             dragDropInput.BackColor = SystemColors.Control;
             dragDropLabel.Show();
-            removeButton.Visible = false;
             dragDropInput.BorderStyle = BorderStyle.None;
             dragDropInput.AllowDrop = true;
+
+            //Sakrij podatke o učitanoj datoteci
             uplodedDocument.Visible = false;
+
+            //Sakrij tipku za uklanjanje datoteke
+            removeButton.Visible = false;
+
+            //Sign document button
+            signDocumentButton.Visible = false;
+
+            documentContent.Clear();
+        }
+
+        private void ShowDocumentMetadata()
+        {
+            //Ukloni natpis i istakni panel
+            dragDropLabel.Hide();
+            dragDropInput.AllowDrop = false;
+            dragDropInput.BackColor = SystemColors.ControlLight;
+            dragDropInput.BorderStyle = BorderStyle.Fixed3D;
+
+            //Prkaži podatke o datoteci
+            uplodedDocument.Visible = true;
+
+            //Prikaži tipku za uklanjanje datoteke
+            removeButton.Visible = true;
+
+            //Sign document button
+            signDocumentButton.Visible = true;
         }
     }
 }
