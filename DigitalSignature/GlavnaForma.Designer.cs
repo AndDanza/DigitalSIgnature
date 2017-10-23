@@ -1,6 +1,6 @@
 ﻿namespace DigitalSignature
 {
-    partial class Form1
+    partial class GlavnaForma
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Form1
+            // GlavnaForma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 352);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(782, 479);
+            this.Name = "GlavnaForma";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Digital Signature - Sign \'n\' Validate";
+            this.Load += new System.EventHandler(this.GlavnaForma_Load);
             this.ResumeLayout(false);
 
         }
