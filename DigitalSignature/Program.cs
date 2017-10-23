@@ -16,7 +16,7 @@ namespace DigitalSignature
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GlavnaForma());
+            Application.Run(new MainForm());
         }
     }
 }
