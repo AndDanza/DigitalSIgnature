@@ -46,6 +46,7 @@
             this.signLabel.Size = new System.Drawing.Size(190, 29);
             this.signLabel.TabIndex = 2;
             this.signLabel.Text = "Sign Document";
+            this.signLabel.Click += new System.EventHandler(this.signLabel_Click);
             // 
             // validateLabel
             // 
@@ -78,6 +79,7 @@
             this.signOptionPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.signOptionPicture.TabIndex = 4;
             this.signOptionPicture.TabStop = false;
+            this.signOptionPicture.Click += new System.EventHandler(this.signOptionPicture_Click);
             // 
             // label1
             // 

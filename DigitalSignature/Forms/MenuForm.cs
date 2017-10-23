@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalSignature.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,36 @@ namespace DigitalSignature
         public MenuForm()
         {
             InitializeComponent();
+        }
+
+        private void signOptionPicture_Click(object sender, EventArgs e)
+        {
+            CloseActiveForm();
+            OpenSignDocumentForm();
+        }
+        
+        private void signLabel_Click(object sender, EventArgs e)
+        {
+            CloseActiveForm();
+            OpenSignDocumentForm();
+        }
+
+        private void CloseActiveForm()
+        {
+            this.Close();
+        }
+
+        private void OpenSignDocumentForm()
+        {
+            MainForm mainForm = (MainForm) Application.OpenForms[0];
+
+            SignDocumentForm signForm = new SignDocumentForm();
+            signForm.TopLevel = false;
+            signForm.ControlBox = false;
+            signForm.Dock = DockStyle.Fill;
+            signForm.FormBorderStyle = FormBorderStyle.None;
+            mainForm.Controls.Add(signForm);
+            signForm.Show();
         }
     }
 }
