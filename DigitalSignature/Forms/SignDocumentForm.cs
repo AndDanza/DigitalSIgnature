@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalSignature.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -93,6 +94,12 @@ namespace DigitalSignature.Forms
 
             //Sign document button
             signDocumentButton.Visible = true;
+        }
+
+        private void signDocumentButton_Click(object sender, EventArgs e)
+        {
+            cryptographyRSAClass getRSAKeys = new cryptographyRSAClass();
+            string keys = getRSAKeys.getKeys();
         }
     }
 }

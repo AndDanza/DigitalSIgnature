@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.dragDropInput = new System.Windows.Forms.Panel();
+            this.removeButton = new System.Windows.Forms.PictureBox();
             this.uplodedDocument = new System.Windows.Forms.GroupBox();
+            this.documentIconPicture = new System.Windows.Forms.PictureBox();
             this.documentPath = new System.Windows.Forms.Label();
             this.documentTitle = new System.Windows.Forms.Label();
             this.dragDropLabel = new System.Windows.Forms.Label();
             this.documentContent = new System.Windows.Forms.TextBox();
             this.signDocumentButton = new System.Windows.Forms.PictureBox();
-            this.removeButton = new System.Windows.Forms.PictureBox();
-            this.documentIconPicture = new System.Windows.Forms.PictureBox();
             this.dragDropInput.SuspendLayout();
-            this.uplodedDocument.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.signDocumentButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.removeButton)).BeginInit();
+            this.uplodedDocument.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signDocumentButton)).BeginInit();
             this.SuspendLayout();
             // 
             // dragDropInput
@@ -58,6 +58,20 @@
             this.dragDropInput.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragDropInput_DragEnter);
             this.dragDropInput.DragLeave += new System.EventHandler(this.dragDropInput_DragLeave);
             // 
+            // removeButton
+            // 
+            this.removeButton.BackColor = System.Drawing.Color.Transparent;
+            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeButton.Image = global::DigitalSignature.Properties.Resources._39;
+            this.removeButton.Location = new System.Drawing.Point(609, 46);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(55, 50);
+            this.removeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.removeButton.TabIndex = 2;
+            this.removeButton.TabStop = false;
+            this.removeButton.Visible = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
             // uplodedDocument
             // 
             this.uplodedDocument.Controls.Add(this.documentIconPicture);
@@ -71,6 +85,16 @@
             this.uplodedDocument.TabStop = false;
             this.uplodedDocument.Text = "Uploded Document";
             this.uplodedDocument.Visible = false;
+            // 
+            // documentIconPicture
+            // 
+            this.documentIconPicture.Image = global::DigitalSignature.Properties.Resources._12_File_512;
+            this.documentIconPicture.Location = new System.Drawing.Point(14, 36);
+            this.documentIconPicture.Name = "documentIconPicture";
+            this.documentIconPicture.Size = new System.Drawing.Size(82, 81);
+            this.documentIconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.documentIconPicture.TabIndex = 1;
+            this.documentIconPicture.TabStop = false;
             // 
             // documentPath
             // 
@@ -115,6 +139,7 @@
             // 
             // signDocumentButton
             // 
+            this.signDocumentButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.signDocumentButton.Image = global::DigitalSignature.Properties.Resources.signature_pen_document_text_512;
             this.signDocumentButton.Location = new System.Drawing.Point(644, 380);
             this.signDocumentButton.Name = "signDocumentButton";
@@ -123,30 +148,7 @@
             this.signDocumentButton.TabIndex = 3;
             this.signDocumentButton.TabStop = false;
             this.signDocumentButton.Visible = false;
-            // 
-            // removeButton
-            // 
-            this.removeButton.BackColor = System.Drawing.Color.Transparent;
-            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.removeButton.Image = global::DigitalSignature.Properties.Resources._39;
-            this.removeButton.Location = new System.Drawing.Point(609, 46);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(55, 50);
-            this.removeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.removeButton.TabIndex = 2;
-            this.removeButton.TabStop = false;
-            this.removeButton.Visible = false;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
-            // 
-            // documentIconPicture
-            // 
-            this.documentIconPicture.Image = global::DigitalSignature.Properties.Resources._12_File_512;
-            this.documentIconPicture.Location = new System.Drawing.Point(14, 36);
-            this.documentIconPicture.Name = "documentIconPicture";
-            this.documentIconPicture.Size = new System.Drawing.Size(82, 81);
-            this.documentIconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.documentIconPicture.TabIndex = 1;
-            this.documentIconPicture.TabStop = false;
+            this.signDocumentButton.Click += new System.EventHandler(this.signDocumentButton_Click);
             // 
             // SignDocumentForm
             // 
@@ -163,11 +165,11 @@
             this.Text = "SignDocumentForm";
             this.dragDropInput.ResumeLayout(false);
             this.dragDropInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).EndInit();
             this.uplodedDocument.ResumeLayout(false);
             this.uplodedDocument.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.signDocumentButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.signDocumentButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
