@@ -19,6 +19,11 @@ namespace DigitalSignature.Forms
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Metoda koja se izvršava kad korisnik ispusti datoteku iznad panela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dragDropInput_DragDrop(object sender, DragEventArgs e)
         {
             GetDocumentData(e);
@@ -26,23 +31,42 @@ namespace DigitalSignature.Forms
             ShowOptions();
         }
 
+        /// <summary>
+        /// Poziva se kad korisnik koji je sa datotekom ušao u granice panela izađe iz istog
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dragDropInput_DragLeave(object sender, EventArgs e)
         {
             dragDropInput.BackColor = SystemColors.Control;
         }
 
+        /// <summary>
+        /// Poziva se kad korisnik sa datotekom uđe u granice panela
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dragDropInput_DragEnter(object sender, DragEventArgs e)
         {
             dragDropInput.BackColor = Color.LightGreen;
             e.Effect = DragDropEffects.All;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva kad korisnik klikne na crni x na ekranu kako bi uklonio datoteku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removeButton_Click(object sender, EventArgs e)
         {
             HideDocumentMetadata();
             HideOptions();
         }
 
+        /// <summary>
+        /// Dohvaća podatke o datoteci koju je korisnik DragnDrop-ao
+        /// </summary>
+        /// <param name="e"></param>
         private void GetDocumentData(DragEventArgs e)
         {
             string docPath = "";
@@ -61,6 +85,9 @@ namespace DigitalSignature.Forms
             documentContentTextBox.Text = UploadedDocument.GetFileContent();
         }
 
+        /// <summary>
+        /// Metoda koja skriva sve metode inputa sa forme
+        /// </summary>
         private void HideDocumentMetadata()
         {
             //Vrati sve na zadane posavke izgleda
@@ -82,6 +109,9 @@ namespace DigitalSignature.Forms
             documentContentTextBox.Clear();
         }
 
+        /// <summary>
+        /// Metoda koja korisniku prikazuje sve metode inputa na formi
+        /// </summary>
         private void ShowDocumentMetadata()
         {
             //Ukloni natpis i istakni panel
@@ -101,22 +131,33 @@ namespace DigitalSignature.Forms
             documentContentTextBox.Visible = true;
         }
 
+        /// <summary>
+        /// Prikazuje meni korisniku
+        /// </summary>
         private void ShowOptions()
         {
             optionsGroupBox.Visible = true;
         }
 
+        /// <summary>
+        /// Skriva meni od korisnika
+        /// </summary>
         private void HideOptions()
         {
             optionsGroupBox.Visible = false;
         }
 
-        private void signDocumentButton_Click(object sender, EventArgs e)
-        {
-            cryptographyRSAClass getRSAKeys = new cryptographyRSAClass();
-            string keys = getRSAKeys.getKeys();
-        }
+        //private void signDocumentButton_Click(object sender, EventArgs e)
+        //{
+        //    cryptographyRSAClass getRSAKeys = new cryptographyRSAClass();
+        //    string keys = getRSAKeys.getKeys();
+        //}
 
+        /// <summary>
+        /// Metoda koja se poziva na klik tipke za SHA1 sažimanje
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void shaDigestButton_Click(object sender, EventArgs e)
         {
             string docContent = UploadedDocument.GetFileContent();

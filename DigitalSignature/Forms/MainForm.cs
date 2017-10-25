@@ -18,6 +18,11 @@ namespace DigitalSignature
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Metoda koja na glavnu formu učitiva formu za učitavanje dokmenta, glumi "roditelja"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GlavnaForma_Load(object sender, EventArgs e)
         {
             //trebat će kasnije
