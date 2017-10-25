@@ -12,29 +12,50 @@ namespace DigitalSignature.Classes
         static string filePath;
         static string fileContent;
 
-        public static void setUploadedDocument(string name, string path, string content)
+        /// <summary>
+        /// Konstruktor klase
+        /// </summary>
+        /// <param name="name">Ime datoteke</param>
+        /// <param name="path">Putanja datoteke</param>
+        /// <param name="content">Sadržaj datoteke</param>
+        public static void SetUploadedDocument(string name, string path, string content)
         {
             fileName = name;
             filePath = path;
             fileContent = content;
         }
 
-        public static string getFileName()
+        /// <summary>
+        /// Getter koji vraća ime datoteke
+        /// </summary>
+        /// <returns>Ime datoteke</returns>
+        public static string SetFileName()
         {
             return fileName;
         }
 
-        public static string getFilePath()
+        /// <summary>
+        /// Getter koji vraća putanju datoteke
+        /// </summary>
+        /// <returns>Putanja datoteke</returns>
+        public static string GetFilePath()
         {
             return filePath;
         }
 
-        public static string getFileContent()
+        /// <summary>
+        /// Getter koji vraća sadržaj datoteke
+        /// </summary>
+        /// <returns>Sadržaj datoteke</returns>
+        public static string GetFileContent()
         {
             return fileContent;
         }
 
-        public static void cleanData()
+        /// <summary>
+        /// Čisiti sve podatke iz klase
+        /// </summary>
+        public static void CleanData()
         {
             fileName = "";
             filePath = "";

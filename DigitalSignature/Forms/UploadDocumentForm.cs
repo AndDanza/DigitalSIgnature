@@ -54,11 +54,11 @@ namespace DigitalSignature.Forms
             docName = docPath.Substring(docPath.LastIndexOf('\\') + 1);
             docText = System.IO.File.ReadAllText(docPath);
 
-            UploadedDocument.setUploadedDocument(docName, docPath, docText);
+            UploadedDocument.SetUploadedDocument(docName, docPath, docText);
             
-            documentTitle.Text = UploadedDocument.getFileName();
-            documentPath.Text = UploadedDocument.getFilePath();
-            documentContentTextBox.Text = UploadedDocument.getFileContent();
+            documentTitle.Text = UploadedDocument.SetFileName();
+            documentPath.Text = UploadedDocument.GetFilePath();
+            documentContentTextBox.Text = UploadedDocument.GetFileContent();
         }
 
         private void HideDocumentMetadata()
@@ -78,7 +78,7 @@ namespace DigitalSignature.Forms
             //sakrij sadržaj datoteke
             documentContentLable.Visible = false;
             documentContentTextBox.Visible = false;
-            UploadedDocument.cleanData();
+            UploadedDocument.CleanData();
             documentContentTextBox.Clear();
         }
 
@@ -119,13 +119,13 @@ namespace DigitalSignature.Forms
 
         private void shaDigestButton_Click(object sender, EventArgs e)
         {
-            string docContent = UploadedDocument.getFileContent();
+            string docContent = UploadedDocument.GetFileContent();
             SHADigestClass shaObject = new SHADigestClass(docContent);
 
             string calculatedDigest = "";
-            calculatedDigest =  shaObject.getDigest();
+            calculatedDigest =  shaObject.GetDigest();
 
-            bool saved = shaObject.saveDigestInTxt(calculatedDigest);
+            bool saved = shaObject.SaveDigestInTxt(calculatedDigest);
 
             if (saved)
                 MessageBox.Show("Digest created!");
