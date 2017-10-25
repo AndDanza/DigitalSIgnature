@@ -76,7 +76,7 @@ namespace DigitalSignature.Forms
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             docPath = files[0].ToString();
             docName = docPath.Substring(docPath.LastIndexOf('\\') + 1);
-            docText = System.IO.File.ReadAllText(docPath);
+            docText = File.ReadAllText(docPath);
 
             UploadedDocumentClass.SetUploadedDocument(docName, docPath, docText);
             
@@ -176,7 +176,37 @@ namespace DigitalSignature.Forms
 
         private void encryptAESButton_Click(object sender, EventArgs e)
         {
+            AESCryptographyClass encrypterAES = new AESCryptographyClass();
+            string encrypted = encrypterAES.EncryptDocumentAES();
 
+            SaveToTxt("helpfile_aes_encrypted", encrypted);
+
+            if (encrypted.Any())
+                MessageBox.Show("File encrypted with AES algoritham!");
+            else
+                MessageBox.Show("ERROR!!!");
+
+        }
+
+        private void SaveToTxt(string title, string content)
+        {
+            using (StreamWriter file = new StreamWriter(@".\"+title+".txt"))
+            {
+                file.WriteLine(content);
+            }
+        }
+
+        private void decryptAESButton_Click(object sender, EventArgs e)
+        {
+            AESCryptographyClass decrypterAES = new AESCryptographyClass();
+            string decrypted = decrypterAES.DecryptDocumentAES();
+
+            SaveToTxt("helpfile_aes_decrypted", decrypted);
+
+            if (decrypted.Any())
+                MessageBox.Show("File encrypted with AES algoritham!");
+            else
+                MessageBox.Show("ERROR!!!");
         }
     }
 }

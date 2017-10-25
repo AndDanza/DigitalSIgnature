@@ -32,9 +32,11 @@
             this.documentContentTextBox = new System.Windows.Forms.TextBox();
             this.dragDropLabel = new System.Windows.Forms.Label();
             this.uplodedDocument = new System.Windows.Forms.GroupBox();
+            this.documentIconPicture = new System.Windows.Forms.PictureBox();
             this.documentPath = new System.Windows.Forms.Label();
             this.documentTitle = new System.Windows.Forms.Label();
             this.dragDropInput = new System.Windows.Forms.Panel();
+            this.removeButton = new System.Windows.Forms.PictureBox();
             this.encryptGroupBox = new System.Windows.Forms.GroupBox();
             this.encryptAESButton = new System.Windows.Forms.Button();
             this.encryptRSAButton = new System.Windows.Forms.Button();
@@ -46,16 +48,14 @@
             this.decryptGroupBox = new System.Windows.Forms.GroupBox();
             this.decryptAESButton = new System.Windows.Forms.Button();
             this.decryptRSAButton = new System.Windows.Forms.Button();
-            this.removeButton = new System.Windows.Forms.PictureBox();
-            this.documentIconPicture = new System.Windows.Forms.PictureBox();
             this.uplodedDocument.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).BeginInit();
             this.dragDropInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).BeginInit();
             this.encryptGroupBox.SuspendLayout();
             this.optionsGroupBox.SuspendLayout();
             this.signatureGroupBox.SuspendLayout();
             this.decryptGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // documentContentLable
@@ -104,6 +104,16 @@
             this.uplodedDocument.Text = "Uploded Document";
             this.uplodedDocument.Visible = false;
             // 
+            // documentIconPicture
+            // 
+            this.documentIconPicture.Image = global::DigitalSignature.Properties.Resources._12_File_512;
+            this.documentIconPicture.Location = new System.Drawing.Point(14, 36);
+            this.documentIconPicture.Name = "documentIconPicture";
+            this.documentIconPicture.Size = new System.Drawing.Size(82, 81);
+            this.documentIconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.documentIconPicture.TabIndex = 1;
+            this.documentIconPicture.TabStop = false;
+            // 
             // documentPath
             // 
             this.documentPath.AutoSize = true;
@@ -137,6 +147,20 @@
             this.dragDropInput.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropInput_DragDrop);
             this.dragDropInput.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragDropInput_DragEnter);
             this.dragDropInput.DragLeave += new System.EventHandler(this.dragDropInput_DragLeave);
+            // 
+            // removeButton
+            // 
+            this.removeButton.BackColor = System.Drawing.Color.Transparent;
+            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeButton.Image = global::DigitalSignature.Properties.Resources._39;
+            this.removeButton.Location = new System.Drawing.Point(713, 43);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(55, 50);
+            this.removeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.removeButton.TabIndex = 2;
+            this.removeButton.TabStop = false;
+            this.removeButton.Visible = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // encryptGroupBox
             // 
@@ -247,6 +271,7 @@
             this.decryptAESButton.TabIndex = 1;
             this.decryptAESButton.Text = "AES";
             this.decryptAESButton.UseVisualStyleBackColor = true;
+            this.decryptAESButton.Click += new System.EventHandler(this.decryptAESButton_Click);
             // 
             // decryptRSAButton
             // 
@@ -256,30 +281,6 @@
             this.decryptRSAButton.TabIndex = 0;
             this.decryptRSAButton.Text = "RSA";
             this.decryptRSAButton.UseVisualStyleBackColor = true;
-            // 
-            // removeButton
-            // 
-            this.removeButton.BackColor = System.Drawing.Color.Transparent;
-            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.removeButton.Image = global::DigitalSignature.Properties.Resources._39;
-            this.removeButton.Location = new System.Drawing.Point(713, 43);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(55, 50);
-            this.removeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.removeButton.TabIndex = 2;
-            this.removeButton.TabStop = false;
-            this.removeButton.Visible = false;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
-            // 
-            // documentIconPicture
-            // 
-            this.documentIconPicture.Image = global::DigitalSignature.Properties.Resources._12_File_512;
-            this.documentIconPicture.Location = new System.Drawing.Point(14, 36);
-            this.documentIconPicture.Name = "documentIconPicture";
-            this.documentIconPicture.Size = new System.Drawing.Size(82, 81);
-            this.documentIconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.documentIconPicture.TabIndex = 1;
-            this.documentIconPicture.TabStop = false;
             // 
             // UploadDocumentForm
             // 
@@ -297,14 +298,14 @@
             this.Text = "SignDocumentForm";
             this.uplodedDocument.ResumeLayout(false);
             this.uplodedDocument.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).EndInit();
             this.dragDropInput.ResumeLayout(false);
             this.dragDropInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).EndInit();
             this.encryptGroupBox.ResumeLayout(false);
             this.optionsGroupBox.ResumeLayout(false);
             this.signatureGroupBox.ResumeLayout(false);
             this.decryptGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
