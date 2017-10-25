@@ -21,8 +21,8 @@ namespace DigitalSignature.Forms
         private void dragDropInput_DragDrop(object sender, DragEventArgs e)
         {
             GetDocumentData(e);
-
             ShowDocumentMetadata();
+            ShowOptions();
         }
 
         private void dragDropInput_DragLeave(object sender, EventArgs e)
@@ -34,12 +34,12 @@ namespace DigitalSignature.Forms
         {
             dragDropInput.BackColor = Color.LightGreen;
             e.Effect = DragDropEffects.All;
-            
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             HideDocumentMetadata();
+            HideOptions();
         }
 
         private void GetDocumentData(DragEventArgs e)
@@ -74,9 +74,6 @@ namespace DigitalSignature.Forms
             //Sakrij tipku za uklanjanje datoteke
             removeButton.Visible = false;
 
-            //Sign document button
-            signDocumentButton.Visible = false;
-
             //sakrij sadržaj datoteke
             documentContentLable.Visible = false;
             documentContentTextBox.Visible = false;
@@ -98,12 +95,19 @@ namespace DigitalSignature.Forms
             //Prikaži tipku za uklanjanje datoteke
             removeButton.Visible = true;
 
-            //Sign document button
-            signDocumentButton.Visible = true;
-
             //prikaži sadržaj datoteke
             documentContentLable.Visible = true;
             documentContentTextBox.Visible = true;
+        }
+
+        private void ShowOptions()
+        {
+            optionsGroupBox.Visible = true;
+        }
+
+        private void HideOptions()
+        {
+            optionsGroupBox.Visible = false;
         }
 
         private void signDocumentButton_Click(object sender, EventArgs e)

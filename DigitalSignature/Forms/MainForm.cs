@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DigitalSignature.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,13 +20,16 @@ namespace DigitalSignature
 
         private void GlavnaForma_Load(object sender, EventArgs e)
         {
-            MenuForm startingForm = new MenuForm();
-            startingForm.TopLevel = false;
-            startingForm.ControlBox = false;
-            startingForm.Dock = DockStyle.Fill;
-            startingForm.FormBorderStyle = FormBorderStyle.None;
-            this.Controls.Add(startingForm);
-            startingForm.Show();
+            //trebat će kasnije
+            //MainForm mainForm = (MainForm)Application.OpenForms[0];
+
+            UploadDocumentForm signForm = new UploadDocumentForm();
+            signForm.TopLevel = false;
+            signForm.ControlBox = false;
+            signForm.Dock = DockStyle.Fill;
+            signForm.FormBorderStyle = FormBorderStyle.None;
+            this.Controls.Add(signForm);
+            signForm.Show();
         }
     }
 }
