@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -114,6 +115,22 @@ namespace DigitalSignature.Forms
         {
             cryptographyRSAClass getRSAKeys = new cryptographyRSAClass();
             string keys = getRSAKeys.getKeys();
+        }
+
+        private void shaDigestButton_Click(object sender, EventArgs e)
+        {
+            string docContent = UploadedDocument.getFileContent();
+            SHADigestClass shaObject = new SHADigestClass(docContent);
+
+            string calculatedDigest = "";
+            calculatedDigest =  shaObject.getDigest();
+
+            bool saved = shaObject.saveDigestInTxt(calculatedDigest);
+
+            if (saved)
+                MessageBox.Show("Digest created!");
+            else
+                MessageBox.Show("ERROR!!!");
         }
     }
 }

@@ -278,6 +278,7 @@
             this.shaDigestButton.TabIndex = 2;
             this.shaDigestButton.Text = "SHA-1";
             this.shaDigestButton.UseVisualStyleBackColor = true;
+            this.shaDigestButton.Click += new System.EventHandler(this.shaDigestButton_Click);
             // 
             // UploadDocumentForm
             // 
