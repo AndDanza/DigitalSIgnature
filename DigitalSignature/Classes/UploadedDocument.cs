@@ -12,7 +12,7 @@ namespace DigitalSignature.Classes
         static string filePath;
         static string fileContent;
 
-        public static void setFileName(string name, string path, string content)
+        public static void setUploadedDocument(string name, string path, string content)
         {
             fileName = name;
             filePath = path;
