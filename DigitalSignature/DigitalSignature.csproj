@@ -107,6 +107,15 @@
   <ItemGroup>
     <None Include="Resources\signature_pen_document_text-512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\giphy %281%29.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ezgif-1-6c0867b8bd.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

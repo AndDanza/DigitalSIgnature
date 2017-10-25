@@ -13,20 +13,18 @@ namespace DigitalSignature
 {
     public partial class MainForm : Form
     {
+        private Timer countToOpen;
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Metoda koja na glavnu formu učitiva formu za učitavanje dokmenta, glumi "roditelja"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GlavnaForma_Load(object sender, EventArgs e)
+        private void ShowWorkForm(object sender, EventArgs e)
         {
-            //trebat će kasnije
-            //MainForm mainForm = (MainForm)Application.OpenForms[0];
+            countToOpen.Stop();
+            headlineLabel.Dispose();
+            pictureBox1.Dispose();
 
             UploadDocumentForm signForm = new UploadDocumentForm();
             signForm.TopLevel = false;
@@ -35,6 +33,15 @@ namespace DigitalSignature
             signForm.FormBorderStyle = FormBorderStyle.None;
             this.Controls.Add(signForm);
             signForm.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            countToOpen = new Timer();
+            countToOpen.Enabled = true;
+            countToOpen.Interval = 3900;
+            countToOpen.Tick += new EventHandler(ShowWorkForm);
+            countToOpen.Start();
         }
     }
 }

@@ -118,19 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="validate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\validate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="12.File-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\12.File-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="39" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\39.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="signature_pen_document_text-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\signature_pen_document_text-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ezgif-1-6c0867b8bd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ezgif-1-6c0867b8bd.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

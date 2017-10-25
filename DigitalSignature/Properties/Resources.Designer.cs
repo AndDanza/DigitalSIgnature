@@ -83,29 +83,9 @@ namespace DigitalSignature.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sign {
+        internal static System.Drawing.Bitmap ezgif_1_6c0867b8bd {
             get {
-                object obj = ResourceManager.GetObject("sign", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap signature_pen_document_text_512 {
-            get {
-                object obj = ResourceManager.GetObject("signature_pen_document_text-512", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap validate {
-            get {
-                object obj = ResourceManager.GetObject("validate", resourceCulture);
+                object obj = ResourceManager.GetObject("ezgif-1-6c0867b8bd", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

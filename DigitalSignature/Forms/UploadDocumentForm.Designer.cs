@@ -32,30 +32,30 @@
             this.documentContentTextBox = new System.Windows.Forms.TextBox();
             this.dragDropLabel = new System.Windows.Forms.Label();
             this.uplodedDocument = new System.Windows.Forms.GroupBox();
-            this.documentTitle = new System.Windows.Forms.Label();
             this.documentPath = new System.Windows.Forms.Label();
-            this.documentIconPicture = new System.Windows.Forms.PictureBox();
-            this.removeButton = new System.Windows.Forms.PictureBox();
+            this.documentTitle = new System.Windows.Forms.Label();
             this.dragDropInput = new System.Windows.Forms.Panel();
             this.encryptGroupBox = new System.Windows.Forms.GroupBox();
-            this.optionsGroupBox = new System.Windows.Forms.GroupBox();
-            this.encryptRSAButton = new System.Windows.Forms.Button();
             this.encryptAESButton = new System.Windows.Forms.Button();
-            this.decryptGroupBox = new System.Windows.Forms.GroupBox();
-            this.decryptAESButton = new System.Windows.Forms.Button();
-            this.decryptRSAButton = new System.Windows.Forms.Button();
+            this.encryptRSAButton = new System.Windows.Forms.Button();
+            this.optionsGroupBox = new System.Windows.Forms.GroupBox();
+            this.shaDigestButton = new System.Windows.Forms.Button();
             this.signatureGroupBox = new System.Windows.Forms.GroupBox();
             this.validateDocButton = new System.Windows.Forms.Button();
             this.signDocButton = new System.Windows.Forms.Button();
-            this.shaDigestButton = new System.Windows.Forms.Button();
+            this.decryptGroupBox = new System.Windows.Forms.GroupBox();
+            this.decryptAESButton = new System.Windows.Forms.Button();
+            this.decryptRSAButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.PictureBox();
+            this.documentIconPicture = new System.Windows.Forms.PictureBox();
             this.uplodedDocument.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).BeginInit();
             this.dragDropInput.SuspendLayout();
             this.encryptGroupBox.SuspendLayout();
             this.optionsGroupBox.SuspendLayout();
-            this.decryptGroupBox.SuspendLayout();
             this.signatureGroupBox.SuspendLayout();
+            this.decryptGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // documentContentLable
@@ -104,16 +104,6 @@
             this.uplodedDocument.Text = "Uploded Document";
             this.uplodedDocument.Visible = false;
             // 
-            // documentTitle
-            // 
-            this.documentTitle.AutoSize = true;
-            this.documentTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.documentTitle.Location = new System.Drawing.Point(115, 48);
-            this.documentTitle.Name = "documentTitle";
-            this.documentTitle.Size = new System.Drawing.Size(53, 20);
-            this.documentTitle.TabIndex = 3;
-            this.documentTitle.Text = "label1";
-            // 
             // documentPath
             // 
             this.documentPath.AutoSize = true;
@@ -124,29 +114,15 @@
             this.documentPath.TabIndex = 4;
             this.documentPath.Text = "label1";
             // 
-            // documentIconPicture
+            // documentTitle
             // 
-            this.documentIconPicture.Image = global::DigitalSignature.Properties.Resources._12_File_512;
-            this.documentIconPicture.Location = new System.Drawing.Point(14, 36);
-            this.documentIconPicture.Name = "documentIconPicture";
-            this.documentIconPicture.Size = new System.Drawing.Size(82, 81);
-            this.documentIconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.documentIconPicture.TabIndex = 1;
-            this.documentIconPicture.TabStop = false;
-            // 
-            // removeButton
-            // 
-            this.removeButton.BackColor = System.Drawing.Color.Transparent;
-            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.removeButton.Image = global::DigitalSignature.Properties.Resources._39;
-            this.removeButton.Location = new System.Drawing.Point(713, 43);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(55, 50);
-            this.removeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.removeButton.TabIndex = 2;
-            this.removeButton.TabStop = false;
-            this.removeButton.Visible = false;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            this.documentTitle.AutoSize = true;
+            this.documentTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.documentTitle.Location = new System.Drawing.Point(115, 48);
+            this.documentTitle.Name = "documentTitle";
+            this.documentTitle.Size = new System.Drawing.Size(53, 20);
+            this.documentTitle.TabIndex = 3;
+            this.documentTitle.Text = "label1";
             // 
             // dragDropInput
             // 
@@ -174,6 +150,26 @@
             this.encryptGroupBox.TabStop = false;
             this.encryptGroupBox.Text = "Encrypt";
             // 
+            // encryptAESButton
+            // 
+            this.encryptAESButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptAESButton.Location = new System.Drawing.Point(14, 98);
+            this.encryptAESButton.Name = "encryptAESButton";
+            this.encryptAESButton.Size = new System.Drawing.Size(154, 51);
+            this.encryptAESButton.TabIndex = 1;
+            this.encryptAESButton.Text = "AES";
+            this.encryptAESButton.UseVisualStyleBackColor = true;
+            // 
+            // encryptRSAButton
+            // 
+            this.encryptRSAButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.encryptRSAButton.Location = new System.Drawing.Point(14, 36);
+            this.encryptRSAButton.Name = "encryptRSAButton";
+            this.encryptRSAButton.Size = new System.Drawing.Size(154, 51);
+            this.encryptRSAButton.TabIndex = 0;
+            this.encryptRSAButton.Text = "RSA";
+            this.encryptRSAButton.UseVisualStyleBackColor = true;
+            // 
             // optionsGroupBox
             // 
             this.optionsGroupBox.Controls.Add(this.shaDigestButton);
@@ -189,55 +185,16 @@
             this.optionsGroupBox.Text = "Options";
             this.optionsGroupBox.Visible = false;
             // 
-            // encryptRSAButton
+            // shaDigestButton
             // 
-            this.encryptRSAButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encryptRSAButton.Location = new System.Drawing.Point(14, 36);
-            this.encryptRSAButton.Name = "encryptRSAButton";
-            this.encryptRSAButton.Size = new System.Drawing.Size(154, 51);
-            this.encryptRSAButton.TabIndex = 0;
-            this.encryptRSAButton.Text = "RSA";
-            this.encryptRSAButton.UseVisualStyleBackColor = true;
-            // 
-            // encryptAESButton
-            // 
-            this.encryptAESButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encryptAESButton.Location = new System.Drawing.Point(14, 98);
-            this.encryptAESButton.Name = "encryptAESButton";
-            this.encryptAESButton.Size = new System.Drawing.Size(154, 51);
-            this.encryptAESButton.TabIndex = 1;
-            this.encryptAESButton.Text = "AES";
-            this.encryptAESButton.UseVisualStyleBackColor = true;
-            // 
-            // decryptGroupBox
-            // 
-            this.decryptGroupBox.Controls.Add(this.decryptAESButton);
-            this.decryptGroupBox.Controls.Add(this.decryptRSAButton);
-            this.decryptGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decryptGroupBox.Location = new System.Drawing.Point(227, 50);
-            this.decryptGroupBox.Name = "decryptGroupBox";
-            this.decryptGroupBox.Size = new System.Drawing.Size(181, 168);
-            this.decryptGroupBox.TabIndex = 6;
-            this.decryptGroupBox.TabStop = false;
-            this.decryptGroupBox.Text = "Decrypt";
-            // 
-            // decryptAESButton
-            // 
-            this.decryptAESButton.Location = new System.Drawing.Point(14, 98);
-            this.decryptAESButton.Name = "decryptAESButton";
-            this.decryptAESButton.Size = new System.Drawing.Size(154, 51);
-            this.decryptAESButton.TabIndex = 1;
-            this.decryptAESButton.Text = "AES";
-            this.decryptAESButton.UseVisualStyleBackColor = true;
-            // 
-            // decryptRSAButton
-            // 
-            this.decryptRSAButton.Location = new System.Drawing.Point(14, 36);
-            this.decryptRSAButton.Name = "decryptRSAButton";
-            this.decryptRSAButton.Size = new System.Drawing.Size(154, 51);
-            this.decryptRSAButton.TabIndex = 0;
-            this.decryptRSAButton.Text = "RSA";
-            this.decryptRSAButton.UseVisualStyleBackColor = true;
+            this.shaDigestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shaDigestButton.Location = new System.Drawing.Point(631, 104);
+            this.shaDigestButton.Name = "shaDigestButton";
+            this.shaDigestButton.Size = new System.Drawing.Size(154, 51);
+            this.shaDigestButton.TabIndex = 2;
+            this.shaDigestButton.Text = "SHA-1";
+            this.shaDigestButton.UseVisualStyleBackColor = true;
+            this.shaDigestButton.Click += new System.EventHandler(this.shaDigestButton_Click);
             // 
             // signatureGroupBox
             // 
@@ -269,16 +226,59 @@
             this.signDocButton.Text = "Sign";
             this.signDocButton.UseVisualStyleBackColor = true;
             // 
-            // shaDigestButton
+            // decryptGroupBox
             // 
-            this.shaDigestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shaDigestButton.Location = new System.Drawing.Point(631, 104);
-            this.shaDigestButton.Name = "shaDigestButton";
-            this.shaDigestButton.Size = new System.Drawing.Size(154, 51);
-            this.shaDigestButton.TabIndex = 2;
-            this.shaDigestButton.Text = "SHA-1";
-            this.shaDigestButton.UseVisualStyleBackColor = true;
-            this.shaDigestButton.Click += new System.EventHandler(this.shaDigestButton_Click);
+            this.decryptGroupBox.Controls.Add(this.decryptAESButton);
+            this.decryptGroupBox.Controls.Add(this.decryptRSAButton);
+            this.decryptGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.decryptGroupBox.Location = new System.Drawing.Point(227, 50);
+            this.decryptGroupBox.Name = "decryptGroupBox";
+            this.decryptGroupBox.Size = new System.Drawing.Size(181, 168);
+            this.decryptGroupBox.TabIndex = 6;
+            this.decryptGroupBox.TabStop = false;
+            this.decryptGroupBox.Text = "Decrypt";
+            // 
+            // decryptAESButton
+            // 
+            this.decryptAESButton.Location = new System.Drawing.Point(14, 98);
+            this.decryptAESButton.Name = "decryptAESButton";
+            this.decryptAESButton.Size = new System.Drawing.Size(154, 51);
+            this.decryptAESButton.TabIndex = 1;
+            this.decryptAESButton.Text = "AES";
+            this.decryptAESButton.UseVisualStyleBackColor = true;
+            // 
+            // decryptRSAButton
+            // 
+            this.decryptRSAButton.Location = new System.Drawing.Point(14, 36);
+            this.decryptRSAButton.Name = "decryptRSAButton";
+            this.decryptRSAButton.Size = new System.Drawing.Size(154, 51);
+            this.decryptRSAButton.TabIndex = 0;
+            this.decryptRSAButton.Text = "RSA";
+            this.decryptRSAButton.UseVisualStyleBackColor = true;
+            // 
+            // removeButton
+            // 
+            this.removeButton.BackColor = System.Drawing.Color.Transparent;
+            this.removeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.removeButton.Image = global::DigitalSignature.Properties.Resources._39;
+            this.removeButton.Location = new System.Drawing.Point(713, 43);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(55, 50);
+            this.removeButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.removeButton.TabIndex = 2;
+            this.removeButton.TabStop = false;
+            this.removeButton.Visible = false;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // documentIconPicture
+            // 
+            this.documentIconPicture.Image = global::DigitalSignature.Properties.Resources._12_File_512;
+            this.documentIconPicture.Location = new System.Drawing.Point(14, 36);
+            this.documentIconPicture.Name = "documentIconPicture";
+            this.documentIconPicture.Size = new System.Drawing.Size(82, 81);
+            this.documentIconPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.documentIconPicture.TabIndex = 1;
+            this.documentIconPicture.TabStop = false;
             // 
             // UploadDocumentForm
             // 
@@ -296,14 +296,14 @@
             this.Text = "SignDocumentForm";
             this.uplodedDocument.ResumeLayout(false);
             this.uplodedDocument.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).EndInit();
             this.dragDropInput.ResumeLayout(false);
             this.dragDropInput.PerformLayout();
             this.encryptGroupBox.ResumeLayout(false);
             this.optionsGroupBox.ResumeLayout(false);
-            this.decryptGroupBox.ResumeLayout(false);
             this.signatureGroupBox.ResumeLayout(false);
+            this.decryptGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.removeButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentIconPicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
