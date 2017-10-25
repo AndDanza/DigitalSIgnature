@@ -34,5 +34,12 @@ namespace DigitalSignature.Classes
             return fileContent;
         }
 
+        public static void cleanData()
+        {
+            fileName = "";
+            filePath = "";
+            fileContent = "";
+        }
+
     }
 }
