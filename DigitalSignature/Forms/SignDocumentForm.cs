@@ -53,9 +53,11 @@ namespace DigitalSignature.Forms
             docName = docPath.Substring(docPath.LastIndexOf('\\') + 1);
             docText = System.IO.File.ReadAllText(docPath);
 
-            documentContent.Text = docText;
-            documentPath.Text = docPath;
-            documentTitle.Text = docName;
+            UploadedDocument.setUploadedDocument(docName, docPath, docText);
+            
+            documentTitle.Text = UploadedDocument.getFileName();
+            documentPath.Text = UploadedDocument.getFilePath();
+            documentContentTextBox.Text = UploadedDocument.getFileContent();
         }
 
         private void HideDocumentMetadata()
@@ -75,7 +77,11 @@ namespace DigitalSignature.Forms
             //Sign document button
             signDocumentButton.Visible = false;
 
-            documentContent.Clear();
+            //sakrij sadržaj datoteke
+            documentContentLable.Visible = false;
+            documentContentTextBox.Visible = false;
+            UploadedDocument.cleanData();
+            documentContentTextBox.Clear();
         }
 
         private void ShowDocumentMetadata()
@@ -94,6 +100,10 @@ namespace DigitalSignature.Forms
 
             //Sign document button
             signDocumentButton.Visible = true;
+
+            //prikaži sadržaj datoteke
+            documentContentLable.Visible = true;
+            documentContentTextBox.Visible = true;
         }
 
         private void signDocumentButton_Click(object sender, EventArgs e)

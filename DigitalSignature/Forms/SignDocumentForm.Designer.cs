@@ -35,8 +35,9 @@
             this.documentPath = new System.Windows.Forms.Label();
             this.documentTitle = new System.Windows.Forms.Label();
             this.dragDropLabel = new System.Windows.Forms.Label();
-            this.documentContent = new System.Windows.Forms.TextBox();
+            this.documentContentTextBox = new System.Windows.Forms.TextBox();
             this.signDocumentButton = new System.Windows.Forms.PictureBox();
+            this.documentContentLable = new System.Windows.Forms.Label();
             this.dragDropInput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.removeButton)).BeginInit();
             this.uplodedDocument.SuspendLayout();
@@ -127,15 +128,16 @@
             this.dragDropLabel.TabIndex = 0;
             this.dragDropLabel.Text = "Drop file in this area";
             // 
-            // documentContent
+            // documentContentTextBox
             // 
-            this.documentContent.Location = new System.Drawing.Point(35, 201);
-            this.documentContent.Multiline = true;
-            this.documentContent.Name = "documentContent";
-            this.documentContent.ReadOnly = true;
-            this.documentContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.documentContent.Size = new System.Drawing.Size(677, 173);
-            this.documentContent.TabIndex = 2;
+            this.documentContentTextBox.Location = new System.Drawing.Point(35, 233);
+            this.documentContentTextBox.Multiline = true;
+            this.documentContentTextBox.Name = "documentContentTextBox";
+            this.documentContentTextBox.ReadOnly = true;
+            this.documentContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.documentContentTextBox.Size = new System.Drawing.Size(677, 141);
+            this.documentContentTextBox.TabIndex = 2;
+            this.documentContentTextBox.Visible = false;
             // 
             // signDocumentButton
             // 
@@ -150,6 +152,16 @@
             this.signDocumentButton.Visible = false;
             this.signDocumentButton.Click += new System.EventHandler(this.signDocumentButton_Click);
             // 
+            // documentContentLable
+            // 
+            this.documentContentLable.AutoSize = true;
+            this.documentContentLable.Location = new System.Drawing.Point(35, 210);
+            this.documentContentLable.Name = "documentContentLable";
+            this.documentContentLable.Size = new System.Drawing.Size(123, 17);
+            this.documentContentLable.TabIndex = 4;
+            this.documentContentLable.Text = "Document content";
+            this.documentContentLable.Visible = false;
+            // 
             // SignDocumentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -157,8 +169,9 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(752, 456);
             this.ControlBox = false;
+            this.Controls.Add(this.documentContentLable);
             this.Controls.Add(this.signDocumentButton);
-            this.Controls.Add(this.documentContent);
+            this.Controls.Add(this.documentContentTextBox);
             this.Controls.Add(this.dragDropInput);
             this.Name = "SignDocumentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -183,7 +196,8 @@
         private System.Windows.Forms.Label documentTitle;
         private System.Windows.Forms.Label documentPath;
         private System.Windows.Forms.GroupBox uplodedDocument;
-        private System.Windows.Forms.TextBox documentContent;
+        private System.Windows.Forms.TextBox documentContentTextBox;
         private System.Windows.Forms.PictureBox signDocumentButton;
+        private System.Windows.Forms.Label documentContentLable;
     }
 }
