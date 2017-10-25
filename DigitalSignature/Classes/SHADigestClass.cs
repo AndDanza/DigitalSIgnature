@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -63,7 +64,7 @@ namespace DigitalSignature.Classes
         /// <returns>Vraća true ako se funkcij izvršila uredu</returns>
         public bool SaveDigestInTxt(string calculatedDigest)
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@".\sha1_digest.txt"))
+            using (StreamWriter file = new StreamWriter(@".\helpfile_sha1_digest.txt"))
             {
                 file.WriteLine(calculatedDigest);
             }
