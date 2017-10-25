@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace DigitalSignature.Forms
 {
-    public partial class SignDocumentForm : Form
+    public partial class UploadDocumentForm : Form
     {
-        public SignDocumentForm()
+        public UploadDocumentForm()
         {
             InitializeComponent();
         }

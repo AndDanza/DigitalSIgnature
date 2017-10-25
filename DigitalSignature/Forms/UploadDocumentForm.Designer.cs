@@ -1,6 +1,6 @@
 ﻿namespace DigitalSignature.Forms
 {
-    partial class SignDocumentForm
+    partial class UploadDocumentForm
     {
         /// <summary>
         /// Required designer variable.

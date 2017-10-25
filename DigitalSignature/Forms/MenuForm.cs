@@ -39,7 +39,7 @@ namespace DigitalSignature
         {
             MainForm mainForm = (MainForm) Application.OpenForms[0];
 
-            SignDocumentForm signForm = new SignDocumentForm();
+            UploadDocumentForm signForm = new UploadDocumentForm();
             signForm.TopLevel = false;
             signForm.ControlBox = false;
             signForm.Dock = DockStyle.Fill;

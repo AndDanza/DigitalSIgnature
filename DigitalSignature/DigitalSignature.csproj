@@ -60,11 +60,11 @@
     <Compile Include="Forms\MenuForm.Designer.cs">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SignDocumentForm.cs">
+    <Compile Include="Forms\UploadDocumentForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SignDocumentForm.Designer.cs">
-      <DependentUpon>SignDocumentForm.cs</DependentUpon>
+    <Compile Include="Forms\UploadDocumentForm.Designer.cs">
+      <DependentUpon>UploadDocumentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,8 +74,8 @@
     <EmbeddedResource Include="Forms\MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SignDocumentForm.resx">
-      <DependentUpon>SignDocumentForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\UploadDocumentForm.resx">
+      <DependentUpon>UploadDocumentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
