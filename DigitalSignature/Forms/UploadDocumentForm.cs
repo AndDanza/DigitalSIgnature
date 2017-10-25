@@ -78,11 +78,11 @@ namespace DigitalSignature.Forms
             docName = docPath.Substring(docPath.LastIndexOf('\\') + 1);
             docText = System.IO.File.ReadAllText(docPath);
 
-            UploadedDocument.SetUploadedDocument(docName, docPath, docText);
+            UploadedDocumentClass.SetUploadedDocument(docName, docPath, docText);
             
-            documentTitle.Text = UploadedDocument.SetFileName();
-            documentPath.Text = UploadedDocument.GetFilePath();
-            documentContentTextBox.Text = UploadedDocument.GetFileContent();
+            documentTitle.Text = UploadedDocumentClass.SetFileName();
+            documentPath.Text = UploadedDocumentClass.GetFilePath();
+            documentContentTextBox.Text = UploadedDocumentClass.GetFileContent();
         }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace DigitalSignature.Forms
             //sakrij sadržaj datoteke
             documentContentLable.Visible = false;
             documentContentTextBox.Visible = false;
-            UploadedDocument.CleanData();
+            UploadedDocumentClass.CleanData();
             documentContentTextBox.Clear();
         }
 
@@ -160,7 +160,7 @@ namespace DigitalSignature.Forms
         /// <param name="e"></param>
         private void shaDigestButton_Click(object sender, EventArgs e)
         {
-            string docContent = UploadedDocument.GetFileContent();
+            string docContent = UploadedDocumentClass.GetFileContent();
             SHADigestClass shaObject = new SHADigestClass(docContent);
 
             string calculatedDigest = "";
@@ -172,6 +172,11 @@ namespace DigitalSignature.Forms
                 MessageBox.Show("Digest created!");
             else
                 MessageBox.Show("ERROR!!!");
+        }
+
+        private void encryptAESButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

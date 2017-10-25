@@ -46,9 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\cryptographyRSAClass.cs" />
+    <Compile Include="Classes\AESCryptographyClass.cs" />
+    <Compile Include="Classes\RSaCryptographyClass.cs" />
     <Compile Include="Classes\SHADigestClass.cs" />
-    <Compile Include="Classes\UploadedDocument.cs" />
+    <Compile Include="Classes\UploadedDocumentClass.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

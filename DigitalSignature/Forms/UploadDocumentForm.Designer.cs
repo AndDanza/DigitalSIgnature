@@ -159,6 +159,7 @@
             this.encryptAESButton.TabIndex = 1;
             this.encryptAESButton.Text = "AES";
             this.encryptAESButton.UseVisualStyleBackColor = true;
+            this.encryptAESButton.Click += new System.EventHandler(this.encryptAESButton_Click);
             // 
             // encryptRSAButton
             // 

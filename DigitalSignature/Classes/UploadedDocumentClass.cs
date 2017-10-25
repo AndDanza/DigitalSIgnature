@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DigitalSignature.Classes
 {
-    public static class UploadedDocument
+    public static class UploadedDocumentClass
     {
         static string fileName;
         static string filePath;
