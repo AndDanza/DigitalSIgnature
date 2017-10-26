@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AsymmetricCryptography.cs" />
     <Compile Include="Classes\SymmetricCryptography.cs" />
-    <Compile Include="Classes\RSACryptographyClass.cs" />
     <Compile Include="Classes\SHADigestClass.cs" />
     <Compile Include="Classes\UploadedDocumentClass.cs" />
     <Compile Include="Forms\LoadingScreenForm.cs">

@@ -10,13 +10,16 @@ namespace DigitalSignature.Classes
 {
     class SymmetricCryptography
     {
-        byte[] simetricKey;
-        byte[] initializationVector;
+        private byte[] symetricKey;
+        private byte[] initializationVector;
 
-        public SymmetricCryptography()
+        public SymmetricCryptography(bool keyExists)
         {
-            GenerateKeyandIV();
-            StoreKeyandIV();
+            if (!keyExists)
+            {
+                GenerateKeyandIV();
+                StoreKeyandIV();
+            }
         }
 
         private void GenerateKeyandIV()
@@ -24,7 +27,7 @@ namespace DigitalSignature.Classes
             using (AesCryptoServiceProvider aesObject = new AesCryptoServiceProvider())
             {
                 aesObject.GenerateKey();
-                simetricKey = aesObject.Key;
+                symetricKey = aesObject.Key;
 
                 aesObject.GenerateIV();
                 initializationVector = aesObject.IV;
@@ -33,27 +36,26 @@ namespace DigitalSignature.Classes
 
         public void StoreKeyandIV()
         {
-            string key = Convert.ToBase64String(simetricKey);
+            string key = Convert.ToBase64String(symetricKey);
             string vector = Convert.ToBase64String(initializationVector);
 
             using (StreamWriter file = new StreamWriter(@".\helpfile_aes_key_vector.txt"))
             {
-                file.WriteLine(key + "\r\n" + vector);
+                file.WriteLine(key);
+                file.WriteLine(vector);
             }
         }
 
-        public string EncryptDocumentAES()
+        public string EncryptDocumentAES(string toEncrypt)
         {
             byte[] encrypted;
 
-            using (AesCryptoServiceProvider aesObject = new AesCryptoServiceProvider())
+            using (AesManaged aesObject = new AesManaged())
             {
-                aesObject.Key = simetricKey;
+                aesObject.Key = symetricKey;
                 aesObject.IV = initializationVector;
-                ICryptoTransform encryptor = aesObject.CreateEncryptor(aesObject.Key, aesObject.IV);
-
-                string toEncrypt = UploadedDocumentClass.GetFileContent();
-                byte[] bytesToEncrypt = Encoding.UTF8.GetBytes(toEncrypt);
+                aesObject.Padding = PaddingMode.PKCS7;
+                ICryptoTransform encryptor = aesObject.CreateEncryptor();
 
                 using (MemoryStream msEncrypt = new MemoryStream())
                 {
@@ -62,20 +64,61 @@ namespace DigitalSignature.Classes
                         using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
                         {
                             //Write all data to the stream.
-                            swEncrypt.Write(bytesToEncrypt);
+                            swEncrypt.Write(toEncrypt);
                         }
-
-                        encrypted = msEncrypt.ToArray();
                     }
+                    encrypted = msEncrypt.ToArray();
                 }
             }
 
             return Convert.ToBase64String(encrypted);
         }
 
-        public void DecryptDocumentAES()
+        private void LoadKeyAndVector()
         {
-            
+            string key, vector;
+
+            using (StreamReader reader = new StreamReader("helpfile_aes_key_vector.txt"))
+            {
+                key = reader.ReadLine();
+                vector = reader.ReadLine();
+            }
+
+            symetricKey = Convert.FromBase64String(key);
+            initializationVector = Convert.FromBase64String(vector);
+        }
+
+
+        public string DecryptDocumentAES(string toDecrypt)
+        {
+            string decrypted;
+
+            using (AesManaged aesObject = new AesManaged())
+            {
+                LoadKeyAndVector();
+
+                aesObject.Key = symetricKey;
+                aesObject.IV = initializationVector;
+                aesObject.Padding = PaddingMode.PKCS7;
+
+                ICryptoTransform decryptor = aesObject.CreateDecryptor();
+                
+                byte[] bytesToEncrypt = Convert.FromBase64String(toDecrypt);
+
+                using (MemoryStream msDecrypt = new MemoryStream(bytesToEncrypt))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+                            // Read the decrypted bytes from the decrypting stream and place them in a string.
+                            decrypted = srDecrypt.ReadToEnd();
+                        }
+                    }
+                }
+            }
+
+            return decrypted;
         }
     }
 }

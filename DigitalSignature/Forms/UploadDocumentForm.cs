@@ -147,12 +147,6 @@ namespace DigitalSignature.Forms
             optionsGroupBox.Visible = false;
         }
 
-        //private void signDocumentButton_Click(object sender, EventArgs e)
-        //{
-        //    cryptographyRSAClass getRSAKeys = new cryptographyRSAClass();
-        //    string keys = getRSAKeys.getKeys();
-        //}
-
         /// <summary>
         /// Metoda koja se poziva na klik tipke za SHA1 sažimanje
         /// </summary>
@@ -174,16 +168,26 @@ namespace DigitalSignature.Forms
 
         private void encryptAESButton_Click(object sender, EventArgs e)
         {
-            SymmetricCryptography encrypterAES = new SymmetricCryptography();
-            string encrypted = encrypterAES.EncryptDocumentAES();
+            SymmetricCryptography encrypterAES = new SymmetricCryptography(false);
+            string contentToEncrypt = UploadedDocumentClass.GetFileContent();
+            string encrypted = encrypterAES.EncryptDocumentAES(contentToEncrypt);
             
             LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "AES Encryption");
+            loadScreen.ShowDialog();
 
             SaveToTxt("helpfile_aes_encrypted", encrypted);
         }
 
         private void decryptAESButton_Click(object sender, EventArgs e)
         {
+            SymmetricCryptography decrypterAES = new SymmetricCryptography(true);
+            string contentToDecrypt = UploadedDocumentClass.GetFileContent();
+            string decrypted = decrypterAES.DecryptDocumentAES(contentToDecrypt);
+
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "AES Decryption");
+            loadScreen.ShowDialog();
+
+            SaveToTxt("helpfile_aes_decrypted", decrypted);
         }
 
         /// <summary>
@@ -195,7 +199,7 @@ namespace DigitalSignature.Forms
         {
             using (StreamWriter file = new StreamWriter(@".\" + title + ".txt"))
             {
-                file.WriteLine(content);
+                file.Write(content);
             }
         }
     }
