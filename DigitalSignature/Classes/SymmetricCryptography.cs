@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DigitalSignature.Classes
 {
-    class AESCryptographyClass
+    class SymmetricCryptography
     {
         byte[] simetricKey;
         byte[] initializationVector;
 
-        public AESCryptographyClass()
+        public SymmetricCryptography()
         {
             GenerateKeyandIV();
             StoreKeyandIV();

@@ -28,7 +28,7 @@ namespace DigitalSignature.Forms
         {
             progressBarTimer.Enabled = true;
             progressBarTimer.Start();
-            progressBarTimer.Interval = 500;
+            progressBarTimer.Interval = 100;
             progressBar1.Maximum = 10;
             progressBarTimer.Tick += new EventHandler(IncreaseProgress);
 

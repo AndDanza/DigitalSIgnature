@@ -29,7 +29,7 @@ namespace DigitalSignature.Classes
         /// Getter koji vraća ime datoteke
         /// </summary>
         /// <returns>Ime datoteke</returns>
-        public static string SetFileName()
+        public static string GetFileName()
         {
             return fileName;
         }

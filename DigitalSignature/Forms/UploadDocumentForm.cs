@@ -80,7 +80,7 @@ namespace DigitalSignature.Forms
 
             UploadedDocumentClass.SetUploadedDocument(docName, docPath, docText);
             
-            documentTitle.Text = UploadedDocumentClass.SetFileName();
+            documentTitle.Text = UploadedDocumentClass.GetFileName();
             documentPath.Text = UploadedDocumentClass.GetFilePath();
             documentContentTextBox.Text = UploadedDocumentClass.GetFileContent();
         }
@@ -166,47 +166,37 @@ namespace DigitalSignature.Forms
             string calculatedDigest = "";
             calculatedDigest =  shaObject.GetDigest();
 
-            bool saved = shaObject.SaveDigestInTxt(calculatedDigest);
+            SaveToTxt("helpfile_sha1_digest", calculatedDigest);
 
-            if (saved)
-                MessageBox.Show("Digest created!");
-            else
-                MessageBox.Show("ERROR!!!");
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "SHA1 Digest");
+            loadScreen.ShowDialog();
         }
 
         private void encryptAESButton_Click(object sender, EventArgs e)
         {
-            AESCryptographyClass encrypterAES = new AESCryptographyClass();
+            SymmetricCryptography encrypterAES = new SymmetricCryptography();
             string encrypted = encrypterAES.EncryptDocumentAES();
+            
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "AES Encryption");
 
             SaveToTxt("helpfile_aes_encrypted", encrypted);
-
-            if (encrypted.Any())
-                MessageBox.Show("File encrypted with AES algoritham!");
-            else
-                MessageBox.Show("ERROR!!!");
-
-        }
-
-        private void SaveToTxt(string title, string content)
-        {
-            using (StreamWriter file = new StreamWriter(@".\"+title+".txt"))
-            {
-                file.WriteLine(content);
-            }
         }
 
         private void decryptAESButton_Click(object sender, EventArgs e)
         {
-            AESCryptographyClass decrypterAES = new AESCryptographyClass();
-            string decrypted = decrypterAES.DecryptDocumentAES();
+        }
 
-            SaveToTxt("helpfile_aes_decrypted", decrypted);
-
-            if (decrypted.Any())
-                MessageBox.Show("File encrypted with AES algoritham!");
-            else
-                MessageBox.Show("ERROR!!!");
+        /// <summary>
+        /// Metoda za pohranu sadržaja u datoteku
+        /// </summary>
+        /// <param name="title">Naslov datoteke</param>
+        /// <param name="content">Sadržaj datoteke</param>
+        private void SaveToTxt(string title, string content)
+        {
+            using (StreamWriter file = new StreamWriter(@".\" + title + ".txt"))
+            {
+                file.WriteLine(content);
+            }
         }
     }
 }
