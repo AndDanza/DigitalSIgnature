@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace DigitalSignature.Classes
 {
-    public class RSACryptographyClass
+    public class AsymmetricCryptography
     {
         RSACryptoServiceProvider rsaKeys;
 
-        public RSACryptographyClass()
+        public AsymmetricCryptography()
         {
             rsaKeys= new RSACryptoServiceProvider();
         }
