@@ -11,21 +11,21 @@ namespace DigitalSignature.Classes
     class SHADigestClass
     {
         /// <summary>
-        /// Učitani sadržaj datoteke pretvoren u byte[]
+        /// Učitani sadržaj datoteke pretvoren u niz byteova
         /// </summary>
         private byte[] documentInBytes;
 
         /// <summary>
         /// Konstruktor klase koji pretvara string u byte[]
         /// </summary>
-        /// <param name="docText">Sadržaj datoteke</param>
+        /// <param name="docText">Tekstualni sadržaj datoteke</param>
         public SHADigestClass(string docText)
         {
             documentInBytes = Encoding.UTF8.GetBytes(docText);
         }
 
         /// <summary>
-        /// Metoda koja ne temelju ulaznog sadržaja tipa byte[] kreira hash te ga vraća u string obliku
+        /// Metoda koja pokreće izračun hash-a te ga vraća u string obliku
         /// </summary>
         /// <returns>SHA1 sažetak pretvoren u string</returns>
         public string GetDigest()
@@ -36,8 +36,9 @@ namespace DigitalSignature.Classes
             using (SHA1CryptoServiceProvider sha1Digester = new SHA1CryptoServiceProvider())
             {
                 digest = sha1Digester.ComputeHash(documentInBytes);
-                stringDigest = ConvertToString(digest);
             }
+
+            stringDigest = ConvertToString(digest);
 
             return stringDigest;
         }
@@ -55,21 +56,6 @@ namespace DigitalSignature.Classes
             outputString = outputString.Replace("-", "");
 
             return outputString;
-        }
-
-        /// <summary>
-        /// Pohranjuje string u TXT datoteku
-        /// </summary>
-        /// <param name="calculatedDigest">String za pohranu</param>
-        /// <returns>Vraća true ako se funkcij izvršila uredu</returns>
-        public bool SaveDigestInTxt(string calculatedDigest)
-        {
-            using (StreamWriter file = new StreamWriter(@".\helpfile_sha1_digest.txt"))
-            {
-                file.WriteLine(calculatedDigest);
-            }
-
-            return true;
         }
     }
 }
