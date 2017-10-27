@@ -194,6 +194,7 @@
             this.encryptRSAButton.TabIndex = 0;
             this.encryptRSAButton.Text = "RSA";
             this.encryptRSAButton.UseVisualStyleBackColor = true;
+            this.encryptRSAButton.Click += new System.EventHandler(this.encryptRSAButton_Click);
             // 
             // optionsGroupBox
             // 
@@ -281,6 +282,7 @@
             this.decryptRSAButton.TabIndex = 0;
             this.decryptRSAButton.Text = "RSA";
             this.decryptRSAButton.UseVisualStyleBackColor = true;
+            this.decryptRSAButton.Click += new System.EventHandler(this.decryptRSAButton_Click);
             // 
             // UploadDocumentForm
             // 

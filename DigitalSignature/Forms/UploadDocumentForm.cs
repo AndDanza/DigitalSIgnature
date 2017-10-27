@@ -190,6 +190,33 @@ namespace DigitalSignature.Forms
             SaveToTxt("helpfile_aes_decrypted", decrypted);
         }
 
+        private void encryptRSAButton_Click(object sender, EventArgs e)
+        {
+            AsymmetricCryptography encrypterRSA = new AsymmetricCryptography();
+            encrypterRSA.GenerateKeys();
+            string contentToEncrypt = UploadedDocumentClass.GetFileContent();
+
+            string encrypted = encrypterRSA.EncryptDocumentRSA(contentToEncrypt);
+
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "RSA Encryption");
+            loadScreen.ShowDialog();
+
+            SaveToTxt("helpfile_rsa_encrypted", encrypted);
+        }
+
+        private void decryptRSAButton_Click(object sender, EventArgs e)
+        {
+            AsymmetricCryptography decrypterRSA = new AsymmetricCryptography();
+            string contentToDecrypt = UploadedDocumentClass.GetFileContent();
+
+            string decrypted = decrypterRSA.DecryptDocumentRSA(contentToDecrypt);
+
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "RSA Decryption");
+            loadScreen.ShowDialog();
+
+            SaveToTxt("helpfile_rsa_decrypted", decrypted);
+        }
+
         /// <summary>
         /// Metoda za pohranu sadržaja u datoteku
         /// </summary>
