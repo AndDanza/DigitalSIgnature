@@ -58,7 +58,7 @@ namespace DigitalSignature.Classes
                 bytesDecrypted = rsaObject.Decrypt(bytesToDecrypt, false);
             }
 
-            string decrypted = Convert.ToBase64String(bytesDecrypted);
+            string decrypted = Encoding.ASCII.GetString(bytesDecrypted);
 
             return decrypted;
         }
