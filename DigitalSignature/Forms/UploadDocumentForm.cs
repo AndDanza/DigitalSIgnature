@@ -136,7 +136,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         private void ShowOptions()
         {
-            optionsGroupBox.Visible = true;
+            panelOptions.Enabled = true;
         }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         private void HideOptions()
         {
-            optionsGroupBox.Visible = false;
+            panelOptions.Enabled = false;
         }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void shaDigestButton_Click(object sender, EventArgs e)
+        private void optionSHA1Digest_Click(object sender, EventArgs e)
         {
             string docContent = UploadedDocumentClass.GetFileContent();
             SHADigestClass shaObject = new SHADigestClass(docContent);
@@ -166,7 +166,7 @@ namespace DigitalSignature.Forms
             loadScreen.ShowDialog();
         }
 
-        private void encryptAESButton_Click(object sender, EventArgs e)
+        private void optionEncryptAES_Click(object sender, EventArgs e)
         {
             SymmetricCryptography encrypterAES = new SymmetricCryptography(false);
             string contentToEncrypt = UploadedDocumentClass.GetFileContent();
@@ -178,7 +178,7 @@ namespace DigitalSignature.Forms
             SaveToTxt("helpfile_aes_encrypted", encrypted);
         }
 
-        private void decryptAESButton_Click(object sender, EventArgs e)
+        private void optionDecryptAES_Click(object sender, EventArgs e)
         {
             SymmetricCryptography decrypterAES = new SymmetricCryptography(true);
             string contentToDecrypt = UploadedDocumentClass.GetFileContent();
@@ -190,7 +190,7 @@ namespace DigitalSignature.Forms
             SaveToTxt("helpfile_aes_decrypted", decrypted);
         }
 
-        private void encryptRSAButton_Click(object sender, EventArgs e)
+        private void optionEncryptRSA_Click(object sender, EventArgs e)
         {
             AsymmetricCryptography encrypterRSA = new AsymmetricCryptography();
             encrypterRSA.GenerateKeys();
@@ -204,7 +204,7 @@ namespace DigitalSignature.Forms
             SaveToTxt("helpfile_rsa_encrypted", encrypted);
         }
 
-        private void decryptRSAButton_Click(object sender, EventArgs e)
+        private void optionDecryptRSA_Click(object sender, EventArgs e)
         {
             AsymmetricCryptography decrypterRSA = new AsymmetricCryptography();
             string contentToDecrypt = UploadedDocumentClass.GetFileContent();
