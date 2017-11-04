@@ -23,7 +23,6 @@ namespace DigitalSignature
         private void ShowWorkForm(object sender, EventArgs e)
         {
             countToOpen.Stop();
-            headlineLabel.Dispose();
             pictureBox1.Dispose();
 
             UploadDocumentForm signForm = new UploadDocumentForm();

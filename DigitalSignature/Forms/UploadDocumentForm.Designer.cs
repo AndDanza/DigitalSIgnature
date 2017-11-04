@@ -77,7 +77,7 @@
             this.documentContentTextBox.Name = "documentContentTextBox";
             this.documentContentTextBox.ReadOnly = true;
             this.documentContentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.documentContentTextBox.Size = new System.Drawing.Size(588, 205);
+            this.documentContentTextBox.Size = new System.Drawing.Size(588, 182);
             this.documentContentTextBox.TabIndex = 2;
             this.documentContentTextBox.Visible = false;
             // 
@@ -168,16 +168,17 @@
             // headlineLable
             // 
             this.headlineLable.AutoSize = true;
-            this.headlineLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.headlineLable.Location = new System.Drawing.Point(57, 24);
+            this.headlineLable.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.headlineLable.Font = new System.Drawing.Font("Lucida Calligraphy", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.headlineLable.Location = new System.Drawing.Point(218, 18);
             this.headlineLable.Name = "headlineLable";
-            this.headlineLable.Size = new System.Drawing.Size(317, 44);
+            this.headlineLable.Size = new System.Drawing.Size(455, 57);
             this.headlineLable.TabIndex = 5;
             this.headlineLable.Text = "Digital Signature";
             // 
             // panelOptions
             // 
-            this.panelOptions.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelOptions.BackColor = System.Drawing.SystemColors.ControlDark;
             this.panelOptions.Controls.Add(this.optionsPanel);
             this.panelOptions.Controls.Add(this.sha1DigestLable);
             this.panelOptions.Controls.Add(this.optionSHA1Digest);
@@ -200,7 +201,7 @@
             // 
             this.optionsPanel.AutoSize = true;
             this.optionsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optionsPanel.Location = new System.Drawing.Point(3, 8);
+            this.optionsPanel.Location = new System.Drawing.Point(49, 107);
             this.optionsPanel.Name = "optionsPanel";
             this.optionsPanel.Size = new System.Drawing.Size(125, 36);
             this.optionsPanel.TabIndex = 28;
@@ -210,7 +211,7 @@
             // 
             this.sha1DigestLable.AutoSize = true;
             this.sha1DigestLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sha1DigestLable.Location = new System.Drawing.Point(23, 479);
+            this.sha1DigestLable.Location = new System.Drawing.Point(16, 514);
             this.sha1DigestLable.Name = "sha1DigestLable";
             this.sha1DigestLable.Size = new System.Drawing.Size(68, 24);
             this.sha1DigestLable.TabIndex = 27;
@@ -218,8 +219,9 @@
             // 
             // optionSHA1Digest
             // 
+            this.optionSHA1Digest.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionSHA1Digest.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.optionSHA1Digest.Location = new System.Drawing.Point(42, 515);
+            this.optionSHA1Digest.Location = new System.Drawing.Point(42, 541);
             this.optionSHA1Digest.Name = "optionSHA1Digest";
             this.optionSHA1Digest.Size = new System.Drawing.Size(154, 34);
             this.optionSHA1Digest.TabIndex = 26;
@@ -231,7 +233,7 @@
             // 
             this.digitalSignatureLabel.AutoSize = true;
             this.digitalSignatureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.digitalSignatureLabel.Location = new System.Drawing.Point(23, 342);
+            this.digitalSignatureLabel.Location = new System.Drawing.Point(16, 394);
             this.digitalSignatureLabel.Name = "digitalSignatureLabel";
             this.digitalSignatureLabel.Size = new System.Drawing.Size(52, 24);
             this.digitalSignatureLabel.TabIndex = 25;
@@ -239,8 +241,9 @@
             // 
             // optionValidateDocument
             // 
+            this.optionValidateDocument.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionValidateDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.optionValidateDocument.Location = new System.Drawing.Point(42, 422);
+            this.optionValidateDocument.Location = new System.Drawing.Point(42, 461);
             this.optionValidateDocument.Name = "optionValidateDocument";
             this.optionValidateDocument.Size = new System.Drawing.Size(154, 34);
             this.optionValidateDocument.TabIndex = 24;
@@ -249,8 +252,9 @@
             // 
             // optionSignDocument
             // 
+            this.optionSignDocument.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionSignDocument.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.optionSignDocument.Location = new System.Drawing.Point(42, 382);
+            this.optionSignDocument.Location = new System.Drawing.Point(42, 421);
             this.optionSignDocument.Name = "optionSignDocument";
             this.optionSignDocument.Size = new System.Drawing.Size(154, 34);
             this.optionSignDocument.TabIndex = 23;
@@ -261,7 +265,7 @@
             // 
             this.decryptLable.AutoSize = true;
             this.decryptLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.decryptLable.Location = new System.Drawing.Point(23, 202);
+            this.decryptLable.Location = new System.Drawing.Point(16, 277);
             this.decryptLable.Name = "decryptLable";
             this.decryptLable.Size = new System.Drawing.Size(81, 24);
             this.decryptLable.TabIndex = 22;
@@ -269,8 +273,9 @@
             // 
             // optionDecryptAES
             // 
+            this.optionDecryptAES.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionDecryptAES.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.optionDecryptAES.Location = new System.Drawing.Point(42, 280);
+            this.optionDecryptAES.Location = new System.Drawing.Point(42, 344);
             this.optionDecryptAES.Name = "optionDecryptAES";
             this.optionDecryptAES.Size = new System.Drawing.Size(154, 34);
             this.optionDecryptAES.TabIndex = 21;
@@ -280,8 +285,9 @@
             // 
             // optionDecryptRSA
             // 
+            this.optionDecryptRSA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionDecryptRSA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.optionDecryptRSA.Location = new System.Drawing.Point(42, 240);
+            this.optionDecryptRSA.Location = new System.Drawing.Point(42, 304);
             this.optionDecryptRSA.Name = "optionDecryptRSA";
             this.optionDecryptRSA.Size = new System.Drawing.Size(154, 34);
             this.optionDecryptRSA.TabIndex = 20;
@@ -293,7 +299,7 @@
             // 
             this.encryptLable.AutoSize = true;
             this.encryptLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.encryptLable.Location = new System.Drawing.Point(23, 60);
+            this.encryptLable.Location = new System.Drawing.Point(16, 162);
             this.encryptLable.Name = "encryptLable";
             this.encryptLable.Size = new System.Drawing.Size(81, 24);
             this.encryptLable.TabIndex = 19;
@@ -301,8 +307,9 @@
             // 
             // optionEncryptAES
             // 
+            this.optionEncryptAES.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionEncryptAES.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.optionEncryptAES.Location = new System.Drawing.Point(42, 133);
+            this.optionEncryptAES.Location = new System.Drawing.Point(42, 229);
             this.optionEncryptAES.Name = "optionEncryptAES";
             this.optionEncryptAES.Size = new System.Drawing.Size(154, 34);
             this.optionEncryptAES.TabIndex = 18;
@@ -312,8 +319,9 @@
             // 
             // optionEncryptRSA
             // 
+            this.optionEncryptRSA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.optionEncryptRSA.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.optionEncryptRSA.Location = new System.Drawing.Point(42, 93);
+            this.optionEncryptRSA.Location = new System.Drawing.Point(42, 189);
             this.optionEncryptRSA.Name = "optionEncryptRSA";
             this.optionEncryptRSA.Size = new System.Drawing.Size(154, 34);
             this.optionEncryptRSA.TabIndex = 17;
@@ -323,11 +331,11 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.panel1.Controls.Add(this.headlineLable);
-            this.panel1.Location = new System.Drawing.Point(219, 1);
+            this.panel1.Location = new System.Drawing.Point(-1, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(664, 90);
+            this.panel1.Size = new System.Drawing.Size(884, 90);
             this.panel1.TabIndex = 7;
             // 
             // UploadDocumentForm
@@ -337,11 +345,12 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(880, 616);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelOptions);
             this.Controls.Add(this.documentContentLable);
             this.Controls.Add(this.documentContentTextBox);
             this.Controls.Add(this.dragDropInput);
-            this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UploadDocumentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SignDocumentForm";
