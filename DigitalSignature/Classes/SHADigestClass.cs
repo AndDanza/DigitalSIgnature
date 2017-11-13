@@ -14,6 +14,7 @@ namespace DigitalSignature.Classes
         /// Učitani sadržaj datoteke pretvoren u niz byteova
         /// </summary>
         private byte[] documentInBytes;
+        private byte[] byteHash;
 
         /// <summary>
         /// Konstruktor klase koji pretvara string u byte[]
@@ -28,19 +29,16 @@ namespace DigitalSignature.Classes
         /// Metoda koja pokreće izračun hash-a te ga vraća u string obliku
         /// </summary>
         /// <returns>SHA1 sažetak pretvoren u string</returns>
-        public string GetDigest()
+        public void GetDigest()
         {
             byte[] digest;
-            string stringDigest = "";
 
             using (SHA1CryptoServiceProvider sha1Digester = new SHA1CryptoServiceProvider())
             {
                 digest = sha1Digester.ComputeHash(documentInBytes);
             }
 
-            stringDigest = ConvertToString(digest);
-
-            return stringDigest;
+            byteHash = digest;
         }
 
         /// <summary>
@@ -48,14 +46,19 @@ namespace DigitalSignature.Classes
         /// </summary>
         /// <param name="digest"></param>
         /// <returns></returns>
-        private string ConvertToString(byte[] digest)
+        public string GetStringDigest()
         {
             string outputString = "";
 
-            outputString = BitConverter.ToString(digest);
+            outputString = BitConverter.ToString(byteHash);
             outputString = outputString.Replace("-", "");
 
             return outputString;
+        }
+
+        public byte[] GetByteDigest()
+        {
+            return byteHash;
         }
     }
 }
