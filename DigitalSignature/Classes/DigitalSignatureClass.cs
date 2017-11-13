@@ -8,6 +8,8 @@ namespace DigitalSignature.Classes
 {
     class DigitalSignatureClass
     {
+        private string originalTextDigest;
+
         public DigitalSignatureClass() { }
 
         private byte[] GetDigest(string originalText)
@@ -15,6 +17,7 @@ namespace DigitalSignature.Classes
             SHADigestClass shaObject = new SHADigestClass(originalText);
             shaObject.GetDigest();
             byte[] digest = shaObject.GetByteDigest();
+            originalTextDigest = shaObject.GetStringDigest();
 
             return digest;
         }
@@ -81,6 +84,11 @@ namespace DigitalSignature.Classes
             returnDocParts[1] = toValidate.Remove(0, toValidate.IndexOf("\r\n")+2);
 
             return returnDocParts;
+        }
+
+        public string GetDigestForSign()
+        {
+            return originalTextDigest;
         }
     }
 }

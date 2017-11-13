@@ -107,6 +107,12 @@ namespace DigitalSignature.Forms
             documentContentTextBox.Visible = false;
             UploadedDocumentClass.CleanData();
             documentContentTextBox.Clear();
+
+            //sakrij detalje procesa
+            outputScreen.Visible = false;
+            outPutScreenLable.Visible = false;
+            outputScreen.BackColor = SystemColors.Control;
+            outputScreen.Clear();
         }
 
         /// <summary>
@@ -129,6 +135,10 @@ namespace DigitalSignature.Forms
             //prikaži sadržaj datoteke
             documentContentLable.Visible = true;
             documentContentTextBox.Visible = true;
+
+            //prikaži detalje procesa
+            outputScreen.Visible = true;
+            outPutScreenLable.Visible = true;
         }
 
         /// <summary>
@@ -165,6 +175,8 @@ namespace DigitalSignature.Forms
 
             LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "SHA1 Digest");
             loadScreen.ShowDialog();
+
+            outputScreen.Text = "SHA1 digest: \r\n" + calculatedDigest;
         }
 
         private void optionEncryptAES_Click(object sender, EventArgs e)
@@ -177,6 +189,8 @@ namespace DigitalSignature.Forms
             loadScreen.ShowDialog();
 
             SaveToTxt("helpfile_aes_encrypted", encrypted);
+
+            outputScreen.Text = "Encrypted with AES: \r\n" + encrypted;
         }
 
         private void optionDecryptAES_Click(object sender, EventArgs e)
@@ -189,6 +203,8 @@ namespace DigitalSignature.Forms
             loadScreen.ShowDialog();
 
             SaveToTxt("helpfile_aes_decrypted", decrypted);
+
+            outputScreen.Text = "Decrypted with AES: \r\n" + decrypted;
         }
 
         private void optionEncryptRSA_Click(object sender, EventArgs e)
@@ -203,6 +219,8 @@ namespace DigitalSignature.Forms
             loadScreen.ShowDialog();
 
             SaveToTxt("helpfile_rsa_encrypted", encrypted);
+
+            outputScreen.Text = "Encrypted with RSA: \r\n" + encrypted;
         }
 
         private void optionDecryptRSA_Click(object sender, EventArgs e)
@@ -216,6 +234,8 @@ namespace DigitalSignature.Forms
             loadScreen.ShowDialog();
 
             SaveToTxt("helpfile_rsa_decrypted", decrypted);
+
+            outputScreen.Text = "Decrypted with RSA: \r\n" + decrypted;
         }
 
         /// <summary>
@@ -238,7 +258,13 @@ namespace DigitalSignature.Forms
             DigitalSignatureClass signObject = new DigitalSignatureClass();
             string signedDocument = signObject.SignDocument(toSign);
 
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "Digital Signature");
+            loadScreen.ShowDialog();
+
             SaveToTxt("helpfile_signature", signedDocument+"\r\n"+toSign);
+
+            outputScreen.Text = "SHA1 digest: \r\n" + signObject.GetDigestForSign();
+            outputScreen.Text += "\r\n\r\nSigned document: \r\n" + signedDocument;
         }
 
         private void optionValidateDocument_Click(object sender, EventArgs e)
@@ -248,10 +274,19 @@ namespace DigitalSignature.Forms
             DigitalSignatureClass signObject = new DigitalSignatureClass();
             bool isValid = signObject.ValidateDocument(toValidate);
 
+            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "Validating Signature");
+            loadScreen.ShowDialog();
+
             if (isValid)
-                MessageBox.Show("Potpis je valjan");
+            {
+                outputScreen.Text = "SIGNATURE IS VALID";
+                outputScreen.BackColor = Color.LightGreen;
+            }   
             else
-                MessageBox.Show("Moš mislit");
+            {
+                outputScreen.Text = "SIGNATURE IS NOT VALID";
+                outputScreen.BackColor = Color.IndianRed;
+            }
         }
     }
 }
