@@ -10,27 +10,31 @@ namespace DigitalSignature.Classes
     {
         public DigitalSignatureClass() { }
 
-        private string GetDigest(string originalText)
+        private byte[] GetDigest(string originalText)
         {
             SHADigestClass shaObject = new SHADigestClass(originalText);
-            string digest = shaObject.GetDigest();
+            shaObject.GetDigest();
+            byte[] digest = shaObject.GetByteDigest();
 
             return digest;
         }
 
-        private void SignWithRSA()
+        private string SignWithRSA(byte[] digest)
         {
             AsymmetricCryptography rsaObject = new AsymmetricCryptography(true);
-            rsaObject.EncryptDocumentRSA("");
+            rsaObject.GenerateKeys();
+            string signature = rsaObject.SignDocument(digest);
+
+            return signature;
         }
 
         public string SignDocument(string toSign)
         {
-            string toSignDigest = GetDigest(toSign);
+            byte[] toSignDigest = GetDigest(toSign);
 
-            SignWithRSA();
+            string signedDoc = SignWithRSA(toSignDigest);
 
-            return "";
+            return signedDoc;
         }
     }
 }
