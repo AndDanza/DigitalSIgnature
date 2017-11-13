@@ -13,17 +13,30 @@ namespace DigitalSignature.Classes
 {
     public class AsymmetricCryptography
     {
+        bool signing = false;
+
         public AsymmetricCryptography(){}
+
+        public AsymmetricCryptography(bool isSignDocument)
+        {
+            signing = isSignDocument;
+        }
 
         public void GenerateKeys()
         {
             using (RSACryptoServiceProvider rsaObject = new RSACryptoServiceProvider(1024))
             {
                 string publicPrivateKey = rsaObject.ToXmlString(true);
-                SaveKeysTxt("rsa_public_and_private_key", publicPrivateKey);
+                if(signing)
+                    SaveKeysTxt("signature_rsa_public_and_private_key", publicPrivateKey);
+                else
+                    SaveKeysTxt("rsa_public_and_private_key", publicPrivateKey);
 
                 string publicKey = rsaObject.ToXmlString(false);
-                SaveKeysTxt("rsa_public_key", publicKey);
+                if(signing)
+                    SaveKeysTxt("signature_rsa_public_key", publicKey);
+                else
+                    SaveKeysTxt("rsa_public_key", publicKey);
             }
         }
 
@@ -61,6 +74,35 @@ namespace DigitalSignature.Classes
             string decrypted = Encoding.ASCII.GetString(bytesDecrypted);
 
             return decrypted;
+        }
+
+        /// <summary>
+        /// Metoda za potpisivanje dokumenta
+        /// </summary>
+        /// <param name="digest">Izračunati sažetak dokumenta koji treba potpisati</param>
+        /// <returns></returns>
+        public string SignDocument(byte[] digest)
+        {
+            byte[] signedBytes;
+
+            using (RSACryptoServiceProvider rsaObject = new RSACryptoServiceProvider(1024))
+            {
+                string xmlPrivateKey = File.ReadAllText(@".\helpfile_signature_rsa_public_and_private_key.txt");
+                rsaObject.FromXmlString(xmlPrivateKey);
+
+                string sha1OID = CryptoConfig.MapNameToOID("SHA1");
+
+                signedBytes = rsaObject.SignHash(digest, sha1OID);
+            }
+
+            string encrypted = Convert.ToBase64String(signedBytes);
+
+            return encrypted;
+        }
+
+        public bool ValidateDocument()
+        {
+            return true;
         }
 
         /// <summary>
