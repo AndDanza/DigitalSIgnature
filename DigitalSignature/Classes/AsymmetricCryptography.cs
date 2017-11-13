@@ -13,10 +13,17 @@ namespace DigitalSignature.Classes
 {
     public class AsymmetricCryptography
     {
+        /// <summary>
+        /// Bool varijabla koja označava radi li se o digitalnom otpisu (true) ili o običnom kriptiranju (rsa)
+        /// </summary>
         bool signing = false;
 
         public AsymmetricCryptography(){}
 
+        /// <summary>
+        /// Konstruktor za digitalni potpis.
+        /// </summary>
+        /// <param name="isSignDocument">Bool varijabla koja označava da se radi o digitalnom potpisu</param>
         public AsymmetricCryptography(bool isSignDocument)
         {
             signing = isSignDocument;

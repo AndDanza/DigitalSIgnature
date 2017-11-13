@@ -37,6 +37,12 @@ namespace DigitalSignature.Classes
             return signedDoc;
         }
 
+        /// <summary>
+        /// Metoda za validaciju koja upravlja objektom asimetričnog kriptiranja
+        /// </summary>
+        /// <param name="digest">Sažetak zapisan u bajtovima</param>
+        /// <param name="signature">String parametar sa potpisom</param>
+        /// <returns></returns>
         private bool DocumentValidation(byte[] digest, string signature)
         {
             AsymmetricCryptography rsaObject = new AsymmetricCryptography(true);
@@ -45,6 +51,11 @@ namespace DigitalSignature.Classes
             return valid;
         }
 
+        /// <summary>
+        /// Glavna metoda validacije koja kontrolira cijel psotupak
+        /// </summary>
+        /// <param name="toValidate">String parametar koji sadrži ulazni tekst</param>
+        /// <returns></returns>
         public bool ValidateDocument(string toValidate)
         {
             string[] signedDocument = BreakDocument(toValidate);
@@ -57,6 +68,11 @@ namespace DigitalSignature.Classes
             return isValid;
         }
 
+        /// <summary>
+        /// Parsira učitani dokument tako da je u prvom redu potpis, a sve dalje predtavlja originalni tekst.
+        /// </summary>
+        /// <param name="toValidate">String parametar koji sadrži ulazni tekst</param>
+        /// <returns></returns>
         private string[] BreakDocument(string toValidate)
         {
             string[] returnDocParts = new string[2];
