@@ -158,7 +158,8 @@ namespace DigitalSignature.Forms
             SHADigestClass shaObject = new SHADigestClass(docContent);
 
             string calculatedDigest = "";
-            calculatedDigest =  shaObject.GetDigest();
+            shaObject.GetDigest();
+            calculatedDigest = shaObject.GetStringDigest();
 
             SaveToTxt("helpfile_sha1_digest", calculatedDigest);
 
@@ -228,6 +229,16 @@ namespace DigitalSignature.Forms
             {
                 file.Write(content);
             }
+        }
+
+        private void optionSignDocument_Click(object sender, EventArgs e)
+        {
+            string toSign = UploadedDocumentClass.GetFileContent();
+
+            DigitalSignatureClass signObject = new DigitalSignatureClass();
+            string signedDocument = signObject.SignDocument(toSign);
+
+            SaveToTxt("helpfile_signature", signedDocument+"\r\n"+toSign);
         }
     }
 }

@@ -172,7 +172,7 @@
             this.headlineLable.Font = new System.Drawing.Font("Lucida Calligraphy", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.headlineLable.Location = new System.Drawing.Point(218, 18);
             this.headlineLable.Name = "headlineLable";
-            this.headlineLable.Size = new System.Drawing.Size(455, 57);
+            this.headlineLable.Size = new System.Drawing.Size(443, 56);
             this.headlineLable.TabIndex = 5;
             this.headlineLable.Text = "Digital Signature";
             // 
@@ -260,6 +260,7 @@
             this.optionSignDocument.TabIndex = 23;
             this.optionSignDocument.Text = "Sign";
             this.optionSignDocument.UseVisualStyleBackColor = true;
+            this.optionSignDocument.Click += new System.EventHandler(this.optionSignDocument_Click);
             // 
             // decryptLable
             // 
