@@ -111,8 +111,6 @@ namespace DigitalSignature.Forms
             //sakrij detalje procesa
             outputScreen.Visible = false;
             outPutScreenLable.Visible = false;
-            outputScreen.BackColor = SystemColors.Control;
-            outputScreen.Clear();
         }
 
         /// <summary>
@@ -190,21 +188,28 @@ namespace DigitalSignature.Forms
 
             SaveToTxt("helpfile_aes_encrypted", encrypted);
 
-            outputScreen.Text = "Encrypted with AES: \r\n" + encrypted;
+            outputScreen.Text = "Encrypted with AES: \r\n" + encrypted;    
         }
 
         private void optionDecryptAES_Click(object sender, EventArgs e)
         {
-            SymmetricCryptography decrypterAES = new SymmetricCryptography(true);
-            string contentToDecrypt = UploadedDocumentClass.GetFileContent();
-            string decrypted = decrypterAES.DecryptDocumentAES(contentToDecrypt);
+            try
+            {
+                SymmetricCryptography decrypterAES = new SymmetricCryptography(true);
+                string contentToDecrypt = UploadedDocumentClass.GetFileContent();
+                string decrypted = decrypterAES.DecryptDocumentAES(contentToDecrypt);
 
-            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "AES Decryption");
-            loadScreen.ShowDialog();
+                LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "AES Decryption");
+                loadScreen.ShowDialog();
 
-            SaveToTxt("helpfile_aes_decrypted", decrypted);
+                SaveToTxt("helpfile_aes_decrypted", decrypted);
 
-            outputScreen.Text = "Decrypted with AES: \r\n" + decrypted;
+                outputScreen.Text = "Decrypted with AES: \r\n" + decrypted;
+            }
+            catch
+            {
+                MessageBox.Show("Document is not valid AES encryption", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void optionEncryptRSA_Click(object sender, EventArgs e)
@@ -225,17 +230,24 @@ namespace DigitalSignature.Forms
 
         private void optionDecryptRSA_Click(object sender, EventArgs e)
         {
-            AsymmetricCryptography decrypterRSA = new AsymmetricCryptography();
-            string contentToDecrypt = UploadedDocumentClass.GetFileContent();
+            try
+            {
+                AsymmetricCryptography decrypterRSA = new AsymmetricCryptography();
+                string contentToDecrypt = UploadedDocumentClass.GetFileContent();
 
-            string decrypted = decrypterRSA.DecryptDocumentRSA(contentToDecrypt);
+                string decrypted = decrypterRSA.DecryptDocumentRSA(contentToDecrypt);
 
-            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "RSA Decryption");
-            loadScreen.ShowDialog();
+                LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "RSA Decryption");
+                loadScreen.ShowDialog();
 
-            SaveToTxt("helpfile_rsa_decrypted", decrypted);
+                SaveToTxt("helpfile_rsa_decrypted", decrypted);
 
-            outputScreen.Text = "Decrypted with RSA: \r\n" + decrypted;
+                outputScreen.Text = "Decrypted with RSA: \r\n" + decrypted;
+            }
+            catch
+            {
+                MessageBox.Show("Document is not valid RSA encryption", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -279,13 +291,11 @@ namespace DigitalSignature.Forms
 
             if (isValid)
             {
-                outputScreen.Text = "SIGNATURE IS VALID";
-                outputScreen.BackColor = Color.LightGreen;
+                MessageBox.Show("Signature is VALID", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }   
             else
             {
-                outputScreen.Text = "SIGNATURE IS NOT VALID";
-                outputScreen.BackColor = Color.IndianRed;
+                MessageBox.Show("Signature is NOT valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
