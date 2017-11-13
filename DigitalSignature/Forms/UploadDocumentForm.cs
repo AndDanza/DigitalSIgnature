@@ -240,5 +240,18 @@ namespace DigitalSignature.Forms
 
             SaveToTxt("helpfile_signature", signedDocument+"\r\n"+toSign);
         }
+
+        private void optionValidateDocument_Click(object sender, EventArgs e)
+        {
+            string toValidate = UploadedDocumentClass.GetFileContent();
+
+            DigitalSignatureClass signObject = new DigitalSignatureClass();
+            bool isValid = signObject.ValidateDocument(toValidate);
+
+            if (isValid)
+                MessageBox.Show("Potpis je valjan");
+            else
+                MessageBox.Show("Moš mislit");
+        }
     }
 }

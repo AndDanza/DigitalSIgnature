@@ -81,7 +81,7 @@ namespace DigitalSignature.Classes
         /// </summary>
         /// <param name="digest">Izračunati sažetak dokumenta koji treba potpisati</param>
         /// <returns></returns>
-        public string SignDocument(byte[] digest)
+        public string SignDocumentRSA(byte[] digest)
         {
             byte[] signedBytes;
 
@@ -100,9 +100,22 @@ namespace DigitalSignature.Classes
             return encrypted;
         }
 
-        public bool ValidateDocument()
+        public bool ValidateDocumentRSA(byte[] digest, string signature)
         {
-            return true;
+            bool valid;
+            byte[] byteSignature = Convert.FromBase64String(signature);
+
+            using (RSACryptoServiceProvider rsaObject = new RSACryptoServiceProvider(1024))
+            {
+                string xmlPrivateKey = File.ReadAllText(@".\helpfile_signature_rsa_public_key.txt");
+                rsaObject.FromXmlString(xmlPrivateKey);
+
+                string sha1OID = CryptoConfig.MapNameToOID("SHA1");
+
+                valid = rsaObject.VerifyHash(digest, sha1OID, byteSignature);
+            }
+
+            return valid;
         }
 
         /// <summary>

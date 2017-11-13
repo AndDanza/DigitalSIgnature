@@ -249,6 +249,7 @@
             this.optionValidateDocument.TabIndex = 24;
             this.optionValidateDocument.Text = "Validate";
             this.optionValidateDocument.UseVisualStyleBackColor = true;
+            this.optionValidateDocument.Click += new System.EventHandler(this.optionValidateDocument_Click);
             // 
             // optionSignDocument
             // 

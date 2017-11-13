@@ -23,7 +23,7 @@ namespace DigitalSignature.Classes
         {
             AsymmetricCryptography rsaObject = new AsymmetricCryptography(true);
             rsaObject.GenerateKeys();
-            string signature = rsaObject.SignDocument(digest);
+            string signature = rsaObject.SignDocumentRSA(digest);
 
             return signature;
         }
@@ -35,6 +35,36 @@ namespace DigitalSignature.Classes
             string signedDoc = SignWithRSA(toSignDigest);
 
             return signedDoc;
+        }
+
+        private bool DocumentValidation(byte[] digest, string signature)
+        {
+            AsymmetricCryptography rsaObject = new AsymmetricCryptography(true);
+            bool valid = rsaObject.ValidateDocumentRSA(digest, signature);
+
+            return valid;
+        }
+
+        public bool ValidateDocument(string toValidate)
+        {
+            string[] signedDocument = BreakDocument(toValidate);
+
+            byte[] digest = GetDigest(signedDocument[1]);
+            string signature = signedDocument[0];
+
+            bool isValid = DocumentValidation(digest, signature);
+
+            return isValid;
+        }
+
+        private string[] BreakDocument(string toValidate)
+        {
+            string[] returnDocParts = new string[2];
+
+            returnDocParts[0] = toValidate.Remove(toValidate.IndexOf("\r\n"));
+            returnDocParts[1] = toValidate.Remove(0, toValidate.IndexOf("\r\n")+2);
+
+            return returnDocParts;
         }
     }
 }
