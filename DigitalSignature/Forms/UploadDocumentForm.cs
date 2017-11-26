@@ -111,6 +111,7 @@ namespace DigitalSignature.Forms
             //sakrij detalje procesa
             outputScreen.Visible = false;
             outPutScreenLable.Visible = false;
+            outputScreen.Text = "";
         }
 
         /// <summary>
