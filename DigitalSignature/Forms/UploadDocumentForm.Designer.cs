@@ -129,7 +129,7 @@
             this.removeButton.TabIndex = 2;
             this.removeButton.TabStop = false;
             this.removeButton.Visible = false;
-            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            this.removeButton.Click += new System.EventHandler(this.RemoveButton_Click);
             // 
             // documentIconPicture
             // 
@@ -163,9 +163,9 @@
             this.dragDropInput.Name = "dragDropInput";
             this.dragDropInput.Size = new System.Drawing.Size(441, 124);
             this.dragDropInput.TabIndex = 1;
-            this.dragDropInput.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDropInput_DragDrop);
-            this.dragDropInput.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragDropInput_DragEnter);
-            this.dragDropInput.DragLeave += new System.EventHandler(this.dragDropInput_DragLeave);
+            this.dragDropInput.DragDrop += new System.Windows.Forms.DragEventHandler(this.DragDropInput_DragDrop);
+            this.dragDropInput.DragEnter += new System.Windows.Forms.DragEventHandler(this.DragDropInput_DragEnter);
+            this.dragDropInput.DragLeave += new System.EventHandler(this.DragDropInput_DragLeave);
             // 
             // headlineLable
             // 
@@ -234,7 +234,7 @@
             this.optionSHA1Digest.TabIndex = 26;
             this.optionSHA1Digest.Text = "SHA-1";
             this.optionSHA1Digest.UseVisualStyleBackColor = true;
-            this.optionSHA1Digest.Click += new System.EventHandler(this.optionSHA1Digest_Click);
+            this.optionSHA1Digest.Click += new System.EventHandler(this.OptionSHA1Digest_Click);
             // 
             // digitalSignatureLabel
             // 
@@ -258,7 +258,7 @@
             this.optionValidateDocument.TabIndex = 24;
             this.optionValidateDocument.Text = "Validate";
             this.optionValidateDocument.UseVisualStyleBackColor = true;
-            this.optionValidateDocument.Click += new System.EventHandler(this.optionValidateDocument_Click);
+            this.optionValidateDocument.Click += new System.EventHandler(this.OptionValidateDocument_Click);
             // 
             // optionSignDocument
             // 
@@ -271,7 +271,7 @@
             this.optionSignDocument.TabIndex = 23;
             this.optionSignDocument.Text = "Sign";
             this.optionSignDocument.UseVisualStyleBackColor = true;
-            this.optionSignDocument.Click += new System.EventHandler(this.optionSignDocument_Click);
+            this.optionSignDocument.Click += new System.EventHandler(this.OptionSignDocument_Click);
             // 
             // decryptLable
             // 
@@ -295,7 +295,7 @@
             this.optionDecryptAES.TabIndex = 21;
             this.optionDecryptAES.Text = "AES";
             this.optionDecryptAES.UseVisualStyleBackColor = true;
-            this.optionDecryptAES.Click += new System.EventHandler(this.optionDecryptAES_Click);
+            this.optionDecryptAES.Click += new System.EventHandler(this.OptionDecryptAES_Click);
             // 
             // optionDecryptRSA
             // 
@@ -308,7 +308,7 @@
             this.optionDecryptRSA.TabIndex = 20;
             this.optionDecryptRSA.Text = "RSA";
             this.optionDecryptRSA.UseVisualStyleBackColor = true;
-            this.optionDecryptRSA.Click += new System.EventHandler(this.optionDecryptRSA_Click);
+            this.optionDecryptRSA.Click += new System.EventHandler(this.OptionDecryptRSA_Click);
             // 
             // encryptLable
             // 
@@ -332,7 +332,7 @@
             this.optionEncryptAES.TabIndex = 18;
             this.optionEncryptAES.Text = "AES";
             this.optionEncryptAES.UseVisualStyleBackColor = true;
-            this.optionEncryptAES.Click += new System.EventHandler(this.optionEncryptAES_Click);
+            this.optionEncryptAES.Click += new System.EventHandler(this.OptionEncryptAES_Click);
             // 
             // optionEncryptRSA
             // 
@@ -345,7 +345,7 @@
             this.optionEncryptRSA.TabIndex = 17;
             this.optionEncryptRSA.Text = "RSA";
             this.optionEncryptRSA.UseVisualStyleBackColor = true;
-            this.optionEncryptRSA.Click += new System.EventHandler(this.optionEncryptRSA_Click);
+            this.optionEncryptRSA.Click += new System.EventHandler(this.OptionEncryptRSA_Click);
             // 
             // panel1
             // 

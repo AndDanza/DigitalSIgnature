@@ -24,7 +24,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dragDropInput_DragDrop(object sender, DragEventArgs e)
+        private void DragDropInput_DragDrop(object sender, DragEventArgs e)
         {
             GetDocumentData(e);
             ShowDocumentMetadata();
@@ -36,7 +36,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dragDropInput_DragLeave(object sender, EventArgs e)
+        private void DragDropInput_DragLeave(object sender, EventArgs e)
         {
             dragDropInput.BackColor = SystemColors.Control;
         }
@@ -46,7 +46,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void dragDropInput_DragEnter(object sender, DragEventArgs e)
+        private void DragDropInput_DragEnter(object sender, DragEventArgs e)
         {
             dragDropInput.BackColor = Color.LightGreen;
             e.Effect = DragDropEffects.All;
@@ -57,7 +57,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void removeButton_Click(object sender, EventArgs e)
+        private void RemoveButton_Click(object sender, EventArgs e)
         {
             HideDocumentMetadata();
             HideOptions();
@@ -160,7 +160,7 @@ namespace DigitalSignature.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void optionSHA1Digest_Click(object sender, EventArgs e)
+        private void OptionSHA1Digest_Click(object sender, EventArgs e)
         {
             string docContent = UploadedDocumentClass.GetFileContent();
             SHADigestClass shaObject = new SHADigestClass(docContent);
@@ -177,7 +177,7 @@ namespace DigitalSignature.Forms
             outputScreen.Text = "SHA1 digest: \r\n" + calculatedDigest;
         }
 
-        private void optionEncryptAES_Click(object sender, EventArgs e)
+        private void OptionEncryptAES_Click(object sender, EventArgs e)
         {
             SymmetricCryptography encrypterAES = new SymmetricCryptography(false);
             string contentToEncrypt = UploadedDocumentClass.GetFileContent();
@@ -191,7 +191,7 @@ namespace DigitalSignature.Forms
             outputScreen.Text = "Encrypted with AES: \r\n" + encrypted;    
         }
 
-        private void optionDecryptAES_Click(object sender, EventArgs e)
+        private void OptionDecryptAES_Click(object sender, EventArgs e)
         {
             try
             {
@@ -212,7 +212,7 @@ namespace DigitalSignature.Forms
             }
         }
 
-        private void optionEncryptRSA_Click(object sender, EventArgs e)
+        private void OptionEncryptRSA_Click(object sender, EventArgs e)
         {
             AsymmetricCryptography encrypterRSA = new AsymmetricCryptography();
             encrypterRSA.GenerateKeys();
@@ -228,7 +228,7 @@ namespace DigitalSignature.Forms
             outputScreen.Text = "Encrypted with RSA: \r\n" + encrypted;
         }
 
-        private void optionDecryptRSA_Click(object sender, EventArgs e)
+        private void OptionDecryptRSA_Click(object sender, EventArgs e)
         {
             try
             {
@@ -263,7 +263,7 @@ namespace DigitalSignature.Forms
             }
         }
 
-        private void optionSignDocument_Click(object sender, EventArgs e)
+        private void OptionSignDocument_Click(object sender, EventArgs e)
         {
             string toSign = UploadedDocumentClass.GetFileContent();
 
@@ -279,7 +279,7 @@ namespace DigitalSignature.Forms
             outputScreen.Text += "\r\n\r\nSigned document: \r\n" + signedDocument;
         }
 
-        private void optionValidateDocument_Click(object sender, EventArgs e)
+        private void OptionValidateDocument_Click(object sender, EventArgs e)
         {
             string toValidate = UploadedDocumentClass.GetFileContent();
 
