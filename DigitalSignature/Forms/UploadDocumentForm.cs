@@ -282,19 +282,26 @@ namespace DigitalSignature.Forms
 
         private void OptionValidateDocument_Click(object sender, EventArgs e)
         {
-            string toValidate = UploadedDocumentClass.GetFileContent();
-
-            DigitalSignatureClass signObject = new DigitalSignatureClass();
-            bool isValid = signObject.ValidateDocument(toValidate);
-
-            LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "Validating Signature");
-            loadScreen.ShowDialog();
-
-            if (isValid)
+            try
             {
-                MessageBox.Show("Signature is VALID", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }   
-            else
+                string toValidate = UploadedDocumentClass.GetFileContent();
+
+                DigitalSignatureClass signObject = new DigitalSignatureClass();
+                bool isValid = signObject.ValidateDocument(toValidate);
+
+                LoadingScreenForm loadScreen = new LoadingScreenForm(UploadedDocumentClass.GetFileName(), "Validating Signature");
+                loadScreen.ShowDialog();
+
+                if (isValid)
+                {
+                    MessageBox.Show("Signature is VALID", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Signature is NOT valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch
             {
                 MessageBox.Show("Signature is NOT valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
