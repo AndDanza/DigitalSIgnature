@@ -13,6 +13,10 @@ namespace DigitalSignature.Classes
         private byte[] symetricKey;
         private byte[] initializationVector;
 
+        /// <summary>
+        /// Konstruktor klase
+        /// </summary>
+        /// <param name="keyExists">Bool varijabla koja određuje je li potrebno generirati ključeve ili ne</param>
         public SymmetricCryptography(bool keyExists)
         {
             if (!keyExists)
@@ -21,7 +25,7 @@ namespace DigitalSignature.Classes
                 StoreKeyandIV();
             }
         }
-
+        
         private void GenerateKeyandIV()
         {
             using (AesCryptoServiceProvider aesObject = new AesCryptoServiceProvider())
@@ -34,6 +38,9 @@ namespace DigitalSignature.Classes
             }
         }
 
+        /// <summary>
+        /// Pohranaključa i IV-a u datoteke radi kasnijeg korištenja
+        /// </summary>
         public void StoreKeyandIV()
         {
             string key = Convert.ToBase64String(symetricKey);
@@ -57,10 +64,13 @@ namespace DigitalSignature.Classes
                 aesObject.Padding = PaddingMode.PKCS7;
                 ICryptoTransform encryptor = aesObject.CreateEncryptor();
 
+                //stream razgovijetnog teksta
                 using (MemoryStream msEncrypt = new MemoryStream())
                 {
+                    //stream koji uz pomoć objekta kriptiranja memory stream kriptira crypto streamom
                     using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
                     {
+                        //enkodiranje cryptiranog streama
                         using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
                         {
                             //Write all data to the stream.
@@ -87,7 +97,6 @@ namespace DigitalSignature.Classes
             symetricKey = Convert.FromBase64String(key);
             initializationVector = Convert.FromBase64String(vector);
         }
-
 
         public string DecryptDocumentAES(string toDecrypt)
         {
