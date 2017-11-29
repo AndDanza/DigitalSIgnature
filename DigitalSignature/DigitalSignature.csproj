@@ -104,25 +104,10 @@
     <None Include="Forms\App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\validate.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\sign.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\39.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\12.File-512.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\signature_pen_document_text-512.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\giphy1.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\giphy %281%29.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ezgif-1-6c0867b8bd.gif" />
